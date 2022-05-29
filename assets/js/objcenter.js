@@ -36479,7 +36479,7 @@ lib.properties = {
 	color: "#CCCC66",
 	opacity: 1.00,
 	manifest: [
-		{src:"../img/objcenter_eng_HTML5 Canvas_atlas_1.png", id:"objcenter_eng_HTML5 Canvas_atlas_1"}
+		{src:"../assets/img/objcenter_eng_HTML5 Canvas_atlas_1.png", id:"objcenter_eng_HTML5 Canvas_atlas_1"}
 	],
 	preloads: []
 };
