@@ -4,14 +4,17 @@ layout: page
 
 <style>
 table.commandtable {
-	background-color: #fff;
+	background-color: var(--background);
+	border: 1px solid var(--border);
+	color: var(--text);
 	overflow-x: hidden;
 	width: 100%;
 	display: table;
 }
 
 table.commandtable th {
-	background-color: #eee;
+	background-color: var(--code-background);
+	color: var(--text);
 	display: block;
 	width: 100%;
 }
@@ -24,6 +27,15 @@ table.commandtable tr, td {
 
 table.commandtable tbody {
 	width: 100%;
+}
+
+table.commandtable h3 {
+	background-color: var(--background) !important;
+}
+
+table.commandtable pre,
+table.commandtable font[color="#000000"] {
+	color: var(--text);
 }
 
 </style>
