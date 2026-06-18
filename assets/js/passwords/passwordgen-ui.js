@@ -245,6 +245,19 @@
     redrawCanvas(canvasId)
   }
 
+  function clearCanvasSelection () {
+    if (!selectedBuffer) return
+    selectedCanvas = null
+    selectedBuffer = null
+    selectedCharIdx = 0
+    redrawAllStringCanvases()
+  }
+
+  function isInsideCanvasEditor (target) {
+    if (!target || !target.closest) return false
+    return !!(target.closest('.text-canvas') || target.closest('#generatorCanvas'))
+  }
+
   function lookupCharCode (key) {
     if (!key) return null
     const map = GAME_CONFIG[currentGame].charMap()
@@ -630,6 +643,7 @@
 
   function switchMode (mode) {
     currentMode = mode
+    if (mode === 'decode') clearCanvasSelection()
     document.querySelectorAll('.mode-tab').forEach(btn => {
       btn.classList.toggle('btn-primary', btn.dataset.mode === mode)
       btn.classList.toggle('btn-default', btn.dataset.mode !== mode)
@@ -766,6 +780,20 @@
         skipNextKeydown = true
         setTimeout(function () { skipNextKeydown = false }, 0)
         insertTextFromKeyboard(e.data)
+      }
+    })
+
+    document.addEventListener('mousedown', function (e) {
+      if (currentMode !== 'generate' || !selectedBuffer) return
+      if (isInsideCanvasEditor(e.target)) return
+      clearCanvasSelection()
+    })
+
+    document.addEventListener('focusin', function (e) {
+      if (currentMode !== 'generate' || !selectedBuffer) return
+      if (!e.target || !e.target.closest) return
+      if (e.target.closest('input, textarea, select, button')) {
+        if (!isInsideCanvasEditor(e.target)) clearCanvasSelection()
       }
     })
   }
