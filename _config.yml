@@ -1,19 +1,19 @@
 # SITE CONFIGURATION
 baseurl: ""
 url: "https://cuyler36.github.io"
-title: cuyler36.github.io # site's title
-description: "Cuyler's blog" # used by search engines
+title: Cuyler's blog
+description: "Cuyler's blog"
 
 
 # THEME-SPECIFIC CONFIGURATION
 theme_settings:
   # Meta
-  title: Cuyler's blog # blog's title
+  title: Cuyler's blog
   avatar: assets/img/C.png
   favicon: assets/favicon.ico
 
   # Header and footer text
-  header_text: > #two or three lines to describe your site
+  header_text: >
      <p>Just some rambling about Animal Crossing <br> and reverse engineering.</p>
   header_text_feature_image: assets/img/Banner.png
   footer_text: >
@@ -27,20 +27,12 @@ theme_settings:
 
   # Sharing options
   share_buttons:
-    facebook: true
     twitter: true
-    tumblr:
-    pinterest:
-    pocket:
     reddit: true
-    linkedin:
-    wordpress:
     email: true
 
   # Scripts / Features
-  google_analytics: # Tracking ID, e.g. "UA-000000-01"
-  disqus_shortname:
-  katex: true # Enable if using math markup
+  katex: false
 
   special_page:
     search:
@@ -74,7 +66,7 @@ theme_settings:
 
 # PAGINATION
 paginate: 5
-paginate_path: "blog/page:num"
+paginate_path: "/page:num/"
 
 
 # BUILD SETTINGS
@@ -84,5 +76,4 @@ sass:
   sass_dir: _sass
   style: :compressed
 plugins: [jekyll-paginate, jekyll-seo-tag]
-#theme: type-on-strap # Uncomment if using the theme as a jekyll theme gem
 exclude: ["Gemfile", "Gemfile.lock", "type-on-strap.gemspec", "*.gem", "LICENSE", "README.md", "screenshot.png", "package.json", "node_modules", "vendor", "gulpfile.js", ".idea/*"]
