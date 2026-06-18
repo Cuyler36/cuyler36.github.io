@@ -98,7 +98,9 @@
         { value: AFE_CODE_TYPES.CardE, label: 'CardE' },
         { value: AFE_CODE_TYPES.Magazine, label: 'Magazine' },
         { value: AFE_CODE_TYPES.User, label: 'User', selected: true },
-        { value: AFE_CODE_TYPES.CardEMini, label: 'CardEMini' }
+        { value: AFE_CODE_TYPES.CardEMini, label: 'CardEMini' },
+        { value: AFE_CODE_TYPES.NewNPC, label: 'New NPC' },
+        { value: AFE_CODE_TYPES.Monument, label: 'Monument' }
       ],
       strings: [
         { id: 'str0', label: 'Recipient Town', size: 6 },
@@ -364,6 +366,23 @@
     el.classList.toggle('hidden', !show)
   }
 
+  function updateAfeStringLabels (labels) {
+    if (currentGame !== 'afeplus') return
+    const wrap = $('string-fields')
+    const canvasWrap = $('canvas-fields')
+    if (!wrap || !canvasWrap) return
+    wrap.querySelectorAll('h3').forEach(function (el, i) {
+      if (labels[i]) el.textContent = labels[i]
+    })
+    canvasWrap.querySelectorAll('.help-text').forEach(function (el, i) {
+      if (labels[i]) el.textContent = labels[i]
+    })
+  }
+
+  const AFE_DEFAULT_STRING_LABELS = ['Recipient Town', 'Recipient Name', 'Sender Name']
+  const AFE_MAGAZINE_STRING_LABELS = ['Sender Town', 'Sender Name', 'Unknown']
+  const AFE_MONUMENT_STRING_LABELS = ['Recipient Town', 'Recipient Name', 'Price']
+
   function onCodeTypeChanged () {
     const codeType = Number($('codetype').value)
     const info = $('codeTypeInfoLabel')
@@ -419,12 +438,22 @@
       }
     } else if (currentGame === 'afeplus') {
       info.textContent = GAME_CONFIG.afeplus.infoDefault
+      setVisible($('monument-controls'), false)
       if (codeType === AFE_CODE_TYPES.NPC || codeType === AFE_CODE_TYPES.CardE) {
         setVisible(villagerControls, true)
       }
       if (codeType === AFE_CODE_TYPES.Famicom) {
         setVisible(itemControls, false)
         setVisible(nesControls, true)
+      }
+      if (codeType === AFE_CODE_TYPES.Monument) {
+        setVisible(itemControls, false)
+        setVisible($('monument-controls'), true)
+        updateAfeStringLabels(AFE_MONUMENT_STRING_LABELS)
+      } else if (codeType === AFE_CODE_TYPES.Magazine) {
+        updateAfeStringLabels(AFE_MAGAZINE_STRING_LABELS)
+      } else {
+        updateAfeStringLabels(AFE_DEFAULT_STRING_LABELS)
       }
     }
   }
@@ -456,13 +485,21 @@
     let hitrate = 0
     let npcCode = 0
     let npcType = 0
-    let itemId
+    let itemId = 0
+    let extraData = 0
 
-    try {
-      itemId = parseItemId()
-    } catch (err) {
-      alert(err.message)
-      return
+    if (currentGame === 'afeplus' && codeType === AFE_CODE_TYPES.Monument) {
+      itemId = Number($('monumentSelect').value) % 15
+      const acreX = Math.max(0, Math.min(7, Number($('acreXInput').value) || 0))
+      const acreY = Math.max(0, Math.min(7, Number($('acreYInput').value) || 0))
+      extraData = ((acreY & 7) << 3) | (acreX & 7)
+    } else {
+      try {
+        itemId = parseItemId()
+      } catch (err) {
+        alert(err.message)
+        return
+      }
     }
 
     if (currentGame === 'ac') {
@@ -515,7 +552,7 @@
         stringBuffers.str1,
         stringBuffers.str2,
         itemId,
-        0,
+        extraData,
         english
       )
     }
