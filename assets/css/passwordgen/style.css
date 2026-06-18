@@ -1,13 +1,16 @@
 .passwordgen-tool {
   max-width: 1100px;
   margin: 0 auto;
+  background: transparent;
+  color: var(--text);
 }
 
 .passwordgen-tool fieldset {
-  border: 1px solid #ccc;
+  border: 1px solid var(--border);
   border-radius: 4px;
   padding: 1rem 1.25rem;
   margin-bottom: 1.5rem;
+  background: transparent;
 }
 
 .passwordgen-tool legend {
@@ -16,6 +19,8 @@
   padding: 0 0.5rem;
   margin-bottom: 0;
   font-size: 1.1rem;
+  color: var(--text);
+  background: var(--background);
 }
 
 .passwordgen-layout {
@@ -36,6 +41,7 @@
 .passwordgen-tool h3 {
   font-size: 1rem;
   margin: 1rem 0 0.5rem;
+  color: var(--h3);
 }
 
 .passwordgen-tool canvas.text-canvas {
@@ -50,6 +56,7 @@
 .passwordgen-tool canvas.font-picker {
   display: block;
   width: 100%;
+  background-color: #fff;
   cursor: crosshair;
 }
 
@@ -89,11 +96,89 @@
   gap: 0.35rem;
 }
 
+.bootstrap-iso.passwordgen-tool .btn {
+  padding-left: 0.85rem;
+  padding-right: 0.85rem;
+}
+
 .passwordgen-tool .game-tabs.btn-group > .btn,
 .passwordgen-tool .mode-tabs.btn-group > .btn {
   float: none;
   margin: 0;
   border-radius: 4px;
+}
+
+.bootstrap-iso.passwordgen-tool .btn-default {
+  color: var(--text);
+  background-color: var(--code-background);
+  border-color: var(--border);
+}
+
+.bootstrap-iso.passwordgen-tool .btn-default:hover,
+.bootstrap-iso.passwordgen-tool .btn-default:focus,
+.bootstrap-iso.passwordgen-tool .btn-default.focus,
+.bootstrap-iso.passwordgen-tool .btn-default:active,
+.bootstrap-iso.passwordgen-tool .btn-default.active,
+.bootstrap-iso.passwordgen-tool .open > .dropdown-toggle.btn-default {
+  color: var(--text);
+  background-color: var(--selection);
+  border-color: var(--border);
+}
+
+.bootstrap-iso.passwordgen-tool .btn-primary {
+  color: #fff;
+  background-color: var(--link);
+  border-color: var(--link);
+}
+
+.bootstrap-iso.passwordgen-tool .btn-primary:hover,
+.bootstrap-iso.passwordgen-tool .btn-primary:focus,
+.bootstrap-iso.passwordgen-tool .btn-primary.focus,
+.bootstrap-iso.passwordgen-tool .btn-primary:active,
+.bootstrap-iso.passwordgen-tool .btn-primary.active,
+.bootstrap-iso.passwordgen-tool .open > .dropdown-toggle.btn-primary {
+  color: #fff;
+  background-color: var(--link);
+  border-color: var(--link);
+  filter: brightness(0.9);
+}
+
+.bootstrap-iso.passwordgen-tool .btn-success {
+  color: #fff;
+  background-color: var(--link);
+  border-color: var(--link);
+}
+
+.bootstrap-iso.passwordgen-tool .btn-success:hover,
+.bootstrap-iso.passwordgen-tool .btn-success:focus,
+.bootstrap-iso.passwordgen-tool .btn-success.focus,
+.bootstrap-iso.passwordgen-tool .btn-success:active,
+.bootstrap-iso.passwordgen-tool .btn-success.active,
+.bootstrap-iso.passwordgen-tool .open > .dropdown-toggle.btn-success {
+  color: #fff;
+  background-color: var(--link);
+  border-color: var(--link);
+  filter: brightness(0.9);
+}
+
+.bootstrap-iso.passwordgen-tool .form-control {
+  color: var(--text);
+  background-color: var(--background);
+  border-color: var(--border);
+}
+
+.bootstrap-iso.passwordgen-tool .form-control:focus {
+  border-color: var(--link);
+  box-shadow: 0 0 0 2px var(--selection);
+}
+
+.bootstrap-iso.passwordgen-tool .form-control::placeholder {
+  color: var(--meta);
+}
+
+.bootstrap-iso.passwordgen-tool select.form-control option {
+  color: var(--text);
+  background-color: var(--background);
 }
 
 .passwordgen-tool .item-search {
@@ -102,14 +187,15 @@
 }
 
 .passwordgen-tool .help-text {
-  color: #666;
+  color: var(--meta);
   font-size: 0.9rem;
 }
 
 .passwordgen-tool .decode-result {
   font-family: monospace;
   white-space: pre-wrap;
-  background: #f7f7f7;
+  background: var(--code-background);
+  color: var(--text);
   padding: 0.75rem;
   border-radius: 4px;
 }
