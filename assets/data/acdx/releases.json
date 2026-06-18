@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "latest": "0.38.1",
+  "sources": {
+    "ac-us-iso": {
+      "label": "Animal Crossing US ISO",
+      "format": "iso",
+      "region": "US",
+      "size": 1459978240,
+      "sha1": "2D2B1FA3883F49AF779CE9CA133DB3BE17BE8F32",
+      "sha256": "CA870A9C11AE26CD4D3FB94BEFD7ECBD075C36244589061D22E3DDC4552DC379",
+      "notes": "Fill in the exact clean source image size and hash before publishing patches."
+    },
+    "ac-aus-iso": {
+        "label": "Animal Crossing Australia ISO",
+        "format": "iso",
+        "region": "Australia",
+        "size": 1459978240,
+        "sha1": "9C50EB2182812E2DADFD47309764E59AAA76D485",
+        "sha256": "52FEA416364D22869D27683990BE2307D87ACEE312E4566C16F24838B8600F86",
+        "notes": "Fill in the exact clean source image size and hash before publishing patches."
+      },
+    "ac-pal-iso": {
+      "label": "Animal Crossing PAL ISO",
+      "format": "iso",
+      "region": "PAL",
+      "size": 1459978240,
+      "sha1": "E5358089343299DE67CBC87D8868DFE07BAAC44F",
+      "sha256": "D2772F13031B283384FF9308E2546C3E0761745088E2EE13EBA9F6F6D7F9D46E",
+      "notes": "Fill in the exact clean source image size and hash before publishing patches."
+    },
+    "ac-us-nkit-iso": {
+      "label": "Animal Crossing US NKit ISO",
+      "format": "nkit.iso",
+      "region": "US",
+      "size": 27574272,
+      "sha1": "8FB378C9E4D3284FBACABC3DA15FB15C9157CEB7",
+      "sha256": "A08AD2654831AB298071BDCDF727945EFCFDD50D2B0E3512A3D361EE7B18296D",
+      "notes": "NKit images must be patched from an exact source hash; this tool does not normalize NKit to ISO."
+    }
+  },
+  "releases": [
+    {
+      "version": "0.38.1",
+      "date": "2026-06-17",
+      "label": "AC Deluxe 0.38.1",
+      "summary": "Patch 38.1 includes new e+ behavior fixes, island crash fixes, golden tool progression fixes, and a save-version upgrade.",
+      "changelog": [
+        "The new e+ fish have their correct sound effects when biting and caught.",
+        "The hercules beetle has its correct sound effect when being scared away.",
+        "The pinball furniture item plays its sound effect from its \"front\" face now, instead of its \"side\" face.",
+        "The TV with VCR now previews its animation in the catalog.",
+        "A crash that could occur when going to the island has been fixed.",
+        "The islander should no longer get stuck indoors indefinitely.",
+        "Receiving a golden watering can before receiving a golden axe will no longer lock the player out of receiving the golden axe as well. Once more, a one-time reset to the golden axe flag will be applied when upgrading to this patch version.",
+        "K.K. live performances have the proper beat tempo after upgrading to the e+ audiorom.",
+        "A bunch of other minor e+ decomp fixes have been added. There are still a lot that need to be brought over.",
+        "Since this version includes a save-version upgrade, back up your save file before launching it!"
+      ],
+      "patches": {
+        "ac-us-iso": {
+          "url": "/assets/patches/acdx/0.38.1/ac-us-iso.xdelta",
+          "outputName": "ACDX-0.38.1.iso",
+          "outputSize": 34394112,
+          "outputSha1": "7EE321F0052845B52A9398EA52940736A8EF2C86"
+        },
+        "ac-aus-iso": {
+          "url": "/assets/patches/acdx/0.38.1/ac-aus-iso.xdelta",
+          "outputName": "ACDX-0.38.1.iso",
+          "outputSize": 34394112,
+          "outputSha1": "7EE321F0052845B52A9398EA52940736A8EF2C86"
+        },
+        "ac-pal-iso": {
+          "url": "/assets/patches/acdx/0.38.1/ac-pal-iso.xdelta",
+          "outputName": "ACDX-0.38.1.iso",
+          "outputSize": 34394112,
+          "outputSha1": "7EE321F0052845B52A9398EA52940736A8EF2C86"
+        },
+        "ac-us-nkit-iso": {
+          "url": "/assets/patches/acdx/0.38.1/ac-us-nkit-iso.xdelta",
+          "outputName": "ACDX-0.38.1.iso",
+          "outputSize": 34394112,
+          "outputSha1": "7EE321F0052845B52A9398EA52940736A8EF2C86"
+        }
+      }
+    }
+  ]
+}

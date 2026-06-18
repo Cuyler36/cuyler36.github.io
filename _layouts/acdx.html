@@ -1,0 +1,65 @@
+---
+layout: page
+---
+
+<link rel="stylesheet" href="{{ '/assets/css/acdx/style.css' | relative_url }}">
+
+<div class="acdx-tool" data-metadata-url="{{ '/assets/data/acdx/releases.json' | relative_url }}">
+  <section class="acdx-intro">
+    <p>
+      Build an <strong>Animal Crossing Deluxe</strong> disc image from your own clean Animal Crossing source image.
+      Your file is processed locally in this browser; it is not uploaded.
+    </p>
+    <p class="acdx-muted">
+      Select a Deluxe release, choose a supported source ISO/NKit image, then apply the matching xdelta patch.
+    </p>
+    <p class="acdx-warning">
+      Files are processed locally in your browser. Large source images are read in chunks,
+      but keep this page open until patching and verification complete.
+    </p>
+  </section>
+
+  <section class="acdx-panel" aria-labelledby="acdx-patcher-heading">
+    <h2 id="acdx-patcher-heading">Patch Builder</h2>
+
+    <div class="acdx-grid">
+      <label class="acdx-field" for="acdx-version-select">
+        <span>Deluxe version</span>
+        <select id="acdx-version-select"></select>
+      </label>
+
+      <div class="acdx-selected-release" id="acdx-selected-release" aria-live="polite"></div>
+    </div>
+
+    <label class="acdx-drop-zone" id="acdx-drop-zone" for="acdx-source-file">
+      <span class="acdx-drop-title">Choose or drop your source image</span>
+      <span class="acdx-muted">Supported sources are matched by exact file size and hash.</span>
+      <input id="acdx-source-file" type="file" accept=".iso,.nkit.iso,application/octet-stream">
+    </label>
+
+    <div class="acdx-status" id="acdx-status" role="status" aria-live="polite">
+      Load a supported source image to begin.
+    </div>
+
+    <div class="acdx-progress hidden" id="acdx-progress-wrap" aria-hidden="true">
+      <div class="acdx-progress-bar" id="acdx-progress-bar"></div>
+    </div>
+
+    <div class="acdx-actions">
+      <button type="button" id="acdx-apply-button" disabled>Apply Patch</button>
+      <a id="acdx-download-link" class="acdx-download hidden" href="#" download>Download patched image</a>
+    </div>
+  </section>
+
+  <section class="acdx-panel" aria-labelledby="acdx-sources-heading">
+    <h2 id="acdx-sources-heading">Supported Sources</h2>
+    <div class="acdx-source-list" id="acdx-source-list"></div>
+  </section>
+
+  <section class="acdx-panel" aria-labelledby="acdx-changelog-heading">
+    <h2 id="acdx-changelog-heading">Changelog</h2>
+    <div class="acdx-changelog" id="acdx-changelog"></div>
+  </section>
+</div>
+
+<script src="{{ '/assets/js/acdx/acdx-ui.js' | relative_url }}"></script>

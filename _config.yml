@@ -37,6 +37,9 @@ plugins:
   - jekyll-seo-tag
   - jekyll-feed
 
+include:
+  - assets/js/acdx/vendor/xdelta3-stream.wasm
+
 exclude:
   - Gemfile
   - Gemfile.lock
