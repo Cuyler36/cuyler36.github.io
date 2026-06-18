@@ -73,17 +73,27 @@
   border: 2px solid #000;
 }
 
-.passwordgen-tool .game-tabs {
+.passwordgen-tool .passwordgen-tab-bars {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
   margin-bottom: 1rem;
 }
 
-.passwordgen-tool .game-tabs .btn {
-  margin-right: 0.35rem;
-  margin-bottom: 0.35rem;
+.passwordgen-tool .game-tabs.btn-group,
+.passwordgen-tool .mode-tabs.btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
 }
 
-.passwordgen-tool .mode-tabs {
-  margin-bottom: 1rem;
+.passwordgen-tool .game-tabs.btn-group > .btn,
+.passwordgen-tool .mode-tabs.btn-group > .btn {
+  float: none;
+  margin: 0;
+  border-radius: 4px;
 }
 
 .passwordgen-tool .item-search {
