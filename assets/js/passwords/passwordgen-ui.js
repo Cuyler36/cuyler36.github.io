@@ -4,15 +4,17 @@
 (function () {
   'use strict'
 
-  const FONT_URL_AC = 'https://dodo.ac/np/images/8/8a/Animal_Crossing_PAL_Font.svg'
-  const FONT_URL_JP = (function () {
+  function assetUrl (filename) {
     const script = document.querySelector('script[src*="passwordgen-ui"]')
-    if (!script) return '/assets/img/passwordgen/dnm-jp-font.png'
+    if (!script) return '/assets/img/passwordgen/' + filename
     return script.src.replace(
       /assets\/js\/passwords\/passwordgen-ui\.js.*$/,
-      'assets/img/passwordgen/dnm-jp-font.png'
+      'assets/img/passwordgen/' + filename
     )
-  })()
+  }
+
+  const FONT_URL_AC = assetUrl('animal-crossing-pal-font.svg')
+  const FONT_URL_JP = assetUrl('dnm-jp-font.png')
   const DATA_BASE = document.querySelector('script[src*="passwordgen-ui"]')
     ? document.querySelector('script[src*="passwordgen-ui"]').src.replace(/passwordgen-ui\.js.*/, '../../data/passwords/')
     : '/assets/data/passwords/'
