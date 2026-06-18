@@ -11,6 +11,19 @@ const AFE_CODE_TYPES = {
   Monument: 7
 }
 
+const afe_code_types = [
+  'Famicom',
+  'NPC',
+  'CardE',
+  'Magazine',
+  'User',
+  'CardEMini',
+  'NewNPC',
+  'Monument'
+]
+
+const AFE_RSA_BITSAVE_IDX = 23
+
 const AFE_PARAM_STRING_SIZE = 6
 const AFE_PASSWORD_DATA_SIZE = 24
 const AFE_PASSWORD_STRING_SIZE = 32
@@ -434,4 +447,228 @@ function ConvertBytesToUnicodeStringAFe (bytes) {
     str += afe_character_map[bytes[i]]
   }
   return str
+}
+
+function afeChangePasswordFontCode (password, englishPasswords) {
+  const tbl = englishPasswords
+    ? afe_usable_to_fontnum_translation
+    : afe_usable_to_fontnum_native
+  for (let i = 0; i < AFE_PASSWORD_STRING_SIZE; i++) {
+    let val = 0xff
+    for (let j = 0; j < tbl.length; j++) {
+      if (tbl[j] === password[i]) {
+        val = j
+        break
+      }
+    }
+    if (val === 0xff) throw new Error('Invalid character in password!')
+    password[i] = val
+  }
+}
+
+function afeChange8BitsCode (password) {
+  const stored = new Uint8Array(AFE_PASSWORD_DATA_SIZE)
+  let passwordIndex = 0
+  let storedIndex = 0
+  let storedValue = 0
+  let count = 0
+  let shiftRight = 0
+  let shiftLeft = 0
+
+  while (true) {
+    storedValue |= (((password[passwordIndex] >> shiftRight) & 1) << shiftLeft) & 0xff
+    shiftRight++
+    shiftLeft++
+    if (shiftLeft > 7) {
+      count++
+      stored[storedIndex++] = storedValue & 0xff
+      shiftLeft = 0
+      if (count >= AFE_PASSWORD_DATA_SIZE) return stored
+      storedValue = 0
+    }
+    if (shiftRight > 5) {
+      shiftRight = 0
+      passwordIndex++
+    }
+  }
+}
+
+function afeDecodeBitShuffle (data, keyIdx) {
+  const count = keyIdx ? 0x17 : 0x16
+  const bitIdx = keyIdx ? 0x09 : 0x0d
+  const tableIndex = data[bitIdx]
+  const shuffledData = new Uint8Array(AFE_PASSWORD_DATA_SIZE - 1)
+  let srcIdx = 0
+
+  for (let i = 0; i < AFE_PASSWORD_DATA_SIZE - 1; i++) {
+    if (i === bitIdx) srcIdx++
+    shuffledData[i] = data[srcIdx++]
+  }
+
+  const zeroedData = new Uint8Array(AFE_PASSWORD_DATA_SIZE - 1)
+  const shuffleTable = afe_select_idx_table[data[bitIdx] & 3]
+  let offsetIdx = 0
+  let zeroedDataIdx = 0
+
+  while (offsetIdx < count) {
+    let tablePos = 0
+    let bit = 0
+    for (let x = 0; x < 8; x++) {
+      let outputOffset = shuffleTable[tablePos++] + offsetIdx
+      if (outputOffset >= count) outputOffset -= count
+      zeroedData[zeroedDataIdx] |= ((shuffledData[outputOffset] >> bit) & 1) << bit
+      bit++
+    }
+    offsetIdx++
+    zeroedDataIdx++
+  }
+
+  for (let i = 0; i < bitIdx; i++) data[i] = zeroedData[i]
+  data[bitIdx] = tableIndex
+  for (let i = bitIdx + 1; i < AFE_PASSWORD_DATA_SIZE; i++) {
+    data[i] = zeroedData[i - 1]
+  }
+}
+
+function afeDecodeBitMixCode (data) {
+  const method = data[1] & 0x0f
+  if (method > 12) {
+    afeBitShift(data, method * -3)
+    afeBitReverse(data)
+    afeBitArrangeReverse(data)
+  } else if (method > 8) {
+    afeBitShift(data, method * 5)
+    afeBitArrangeReverse(data)
+  } else if (method > 4) {
+    afeBitReverse(data)
+    afeBitShift(data, method * 5)
+  } else {
+    afeBitArrangeReverse(data)
+    afeBitShift(data, method * -3)
+  }
+}
+
+function afeDecodeRSACipher (data) {
+  const rsa = afeGetRSAKeyCode(data)
+  const n = rsa.p * rsa.q
+  const evenProduct = (rsa.p - 1) * (rsa.q - 1)
+  let modCount = 0
+  let d
+
+  do {
+    d = (++modCount * evenProduct + 1) / rsa.e
+  } while ((modCount * evenProduct + 1) % rsa.e !== 0)
+
+  for (let i = 0; i < 8; i++) {
+    let cEnc = data[rsa.select_tbl[i]]
+    cEnc |= ((data[AFE_RSA_BITSAVE_IDX] >> i) & 1) << 8
+    const c = cEnc
+    for (let j = 0; j < d - 1; j++) {
+      cEnc = (cEnc * c) % n
+    }
+    data[rsa.select_tbl[i]] = cEnc & 0xff
+  }
+}
+
+function afeDecodeSubstitutionCipher (data) {
+  for (let i = 0; i < AFE_PASSWORD_DATA_SIZE; i++) {
+    for (let j = 0; j < 256; j++) {
+      if (data[i] === afe_change_code_tbl[j]) {
+        data[i] = j
+        break
+      }
+    }
+  }
+}
+
+function afeGetPasswordChecksum (data) {
+  let checksum = 0
+  for (let i = 0x03; i < 0x15; i++) checksum += data[i]
+  checksum += (data[0x15] << 8) | data[0x16]
+  checksum += data[2]
+  return (((checksum >> 2) & 3) << 2) | (((checksum << 6) & 0xc0) >> 6)
+}
+
+function CheckIsPasswordValidAFe (password) {
+  if (!password.ChecksumValid) return false
+  if (password.Type === AFE_CODE_TYPES.CardE || password.Type >= 8) return false
+  return true
+}
+
+function GetPasswordDataAFe (data) {
+  const codeType = (data[0] >> 5) & 7
+  const storedChecksum = ((data[0] & 3) << 2) | ((data[1] & 0xc0) >> 6)
+  const extraData = data[1] & 0x3f
+  const npcCode = data[2]
+  let string0 = ''
+  let string1 = ''
+  let string2 = ''
+
+  for (let i = 0; i < AFE_PARAM_STRING_SIZE; i++) {
+    string0 += afe_character_map[data[3 + i]]
+    string1 += afe_character_map[data[9 + i]]
+    string2 += afe_character_map[data[15 + i]]
+  }
+
+  const itemId = (data[21] << 8) | data[22]
+  let hitRateIndex
+
+  switch (codeType) {
+    case AFE_CODE_TYPES.Famicom:
+    case AFE_CODE_TYPES.NPC:
+    case AFE_CODE_TYPES.Magazine:
+    case AFE_CODE_TYPES.Monument:
+      hitRateIndex = (data[0] >> 2) & 7
+      break
+    default:
+      hitRateIndex = (data[0] >> 2) & 3
+  }
+
+  const password = {
+    Type: codeType,
+    ItemId: itemId,
+    String0: string0,
+    String1: string1,
+    String2: string2,
+    NPCCode: npcCode,
+    ExtraData: extraData,
+    HitRateIndex: hitRateIndex,
+    Checksum: storedChecksum,
+    CalculatedChecksum: afeGetPasswordChecksum(data),
+    ChecksumValid: false,
+    Valid: false
+  }
+
+  password.ChecksumValid = password.CalculatedChecksum === storedChecksum
+  password.Valid = CheckIsPasswordValidAFe(password)
+  return password
+}
+
+function DecodePasswordBytesAFe (passwordBytes, englishPasswords) {
+  const input = new Uint8Array(passwordBytes)
+  afeChangePasswordFontCode(input, englishPasswords)
+  const data = afeChange8BitsCode(input)
+  afeTranspositionCipher(data, true, 1)
+  afeDecodeBitShuffle(data, true)
+  afeDecodeBitMixCode(data)
+  afeDecodeRSACipher(data)
+  afeDecodeBitShuffle(data, false)
+  afeTranspositionCipher(data, false, 0)
+  afeDecodeSubstitutionCipher(data)
+  return GetPasswordDataAFe(data)
+}
+
+function DecodePasswordAFe (passwordStr, englishPasswords) {
+  if (passwordStr.length !== AFE_PASSWORD_STRING_SIZE) {
+    throw new Error('Invalid password length!')
+  }
+
+  const bytes = new Uint8Array(AFE_PASSWORD_STRING_SIZE)
+  for (let i = 0; i < passwordStr.length; i++) {
+    const idx = afe_character_map.indexOf(passwordStr.charAt(i))
+    if (idx < 0) throw new Error('Invalid character in password!')
+    bytes[i] = idx
+  }
+
+  return DecodePasswordBytesAFe(bytes, englishPasswords)
 }

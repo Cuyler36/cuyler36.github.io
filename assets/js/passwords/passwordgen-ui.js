@@ -540,16 +540,70 @@
         ].join('\n')
       } else if (currentGame === 'afplus') {
         const data = DecodePasswordAFPlus(raw)
-        result.textContent = [
-          'Type: ' + data.Type,
-          'Present Index: 0x' + data.PresentIndex.toString(16).toUpperCase(),
-          'String 0: ' + JSON.stringify(data.String0),
-          'String 1: ' + JSON.stringify(data.String1),
-          'NPC Code: ' + data.NPCCode,
-          'Checksum: 0x' + data.Checksum.toString(16).toUpperCase()
-        ].join('\n')
+        const typeName = afplus_code_types[data.Type] || String(data.Type)
+        const lines = [
+          'Valid: ' + data.Valid,
+          'Checksum valid: ' + data.ChecksumValid,
+          'Type: ' + typeName,
+          'Present Index: 0x' + data.PresentIndex.toString(16).toUpperCase().padStart(4, '0'),
+          'Present ID: 0x' + data.PresentId.toString(16).toUpperCase().padStart(4, '0'),
+          'Player Name: ' + JSON.stringify(data.String0),
+          'Town Name: ' + JSON.stringify(data.String1)
+        ]
+        if (
+          data.Type === AFPLUS_CODE_TYPES.Popular ||
+          data.Type === AFPLUS_CODE_TYPES.CardE
+        ) {
+          lines.push('NPC Code: ' + data.NPCCode)
+          lines.push('Special NPC: ' + (data.SpecialNPC !== 0))
+        }
+        if (data.Type !== AFPLUS_CODE_TYPES.Popular) {
+          lines.push('Hit Rate Index: 0x' + data.HitRateIndex.toString(16).toUpperCase())
+        }
+        lines.push(
+          'Stored Checksum: 0x' + data.Checksum.toString(16).toUpperCase(),
+          'Calculated Checksum: 0x' + data.CalculatedChecksum.toString(16).toUpperCase()
+        )
+        result.textContent = lines.join('\n')
+      } else if (currentGame === 'afeplus') {
+        const english = $('decodeEnglishPasswordToggle').checked
+        const data = DecodePasswordAFe(raw, english)
+        const typeName = afe_code_types[data.Type] || String(data.Type)
+        const lines = [
+          'Valid: ' + data.Valid,
+          'Checksum valid: ' + data.ChecksumValid,
+          'Type: ' + typeName,
+          'Item ID: 0x' + data.ItemId.toString(16).toUpperCase().padStart(4, '0')
+        ]
+        if (data.Type === AFE_CODE_TYPES.Magazine) {
+          lines.push('Sender Town: ' + JSON.stringify(data.String0))
+          lines.push('Sender Name: ' + JSON.stringify(data.String1))
+          lines.push('Unknown: ' + JSON.stringify(data.String2))
+        } else if (data.Type === AFE_CODE_TYPES.Monument) {
+          lines.push('Recipient Town: ' + JSON.stringify(data.String0))
+          lines.push('Recipient Name: ' + JSON.stringify(data.String1))
+          lines.push('Price: ' + JSON.stringify(data.String2))
+          lines.push('Acre X: ' + (data.ExtraData & 7))
+          lines.push('Acre Y: ' + ((data.ExtraData >> 3) & 7))
+        } else {
+          lines.push('Recipient Town: ' + JSON.stringify(data.String0))
+          lines.push('Recipient Name: ' + JSON.stringify(data.String1))
+          lines.push('Sender Name: ' + JSON.stringify(data.String2))
+        }
+        if (
+          data.Type === AFE_CODE_TYPES.NPC ||
+          data.Type === AFE_CODE_TYPES.NewNPC
+        ) {
+          lines.push('NPC Code: ' + data.NPCCode)
+        }
+        lines.push('Hit Rate Index: ' + data.HitRateIndex)
+        lines.push(
+          'Stored Checksum: 0x' + data.Checksum.toString(16).toUpperCase(),
+          'Calculated Checksum: 0x' + data.CalculatedChecksum.toString(16).toUpperCase()
+        )
+        result.textContent = lines.join('\n')
       } else {
-        result.textContent = 'Decoder for Doubutsu no Mori e+ is not yet available in the browser UI.'
+        result.textContent = 'Decoder is not available for this game.'
       }
       result.classList.remove('hidden')
     } catch (err) {
@@ -565,6 +619,7 @@
     })
     $('itemHeader').textContent = GAME_CONFIG[game].useItemId ? 'Item' : (GAME_CONFIG[game].idLabel || 'Present Index')
     setVisible($('afe-english-toggle'), !!GAME_CONFIG[game].showEnglishToggle)
+    setVisible($('afe-decode-english'), !!GAME_CONFIG[game].showEnglishToggle)
     buildStringFields()
     populateCodeTypes()
     $('codeTypeInfoLabel').textContent = GAME_CONFIG[game].infoDefault
