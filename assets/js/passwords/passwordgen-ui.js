@@ -4,7 +4,15 @@
 (function () {
   'use strict'
 
-  const FONT_URL = 'https://dodo.ac/np/images/8/8a/Animal_Crossing_PAL_Font.svg'
+  const FONT_URL_AC = 'https://dodo.ac/np/images/8/8a/Animal_Crossing_PAL_Font.svg'
+  const FONT_URL_JP = (function () {
+    const script = document.querySelector('script[src*="passwordgen-ui"]')
+    if (!script) return '/assets/img/passwordgen/dnm-jp-font.png'
+    return script.src.replace(
+      /assets\/js\/passwords\/passwordgen-ui\.js.*$/,
+      'assets/img/passwordgen/dnm-jp-font.png'
+    )
+  })()
   const DATA_BASE = document.querySelector('script[src*="passwordgen-ui"]')
     ? document.querySelector('script[src*="passwordgen-ui"]').src.replace(/passwordgen-ui\.js.*/, '../../data/passwords/')
     : '/assets/data/passwords/'
@@ -91,8 +99,59 @@
   let selectedBuffer = null
   let selectedCols = 8
   let selectedCharIdx = 0
-  const fontImg = new Image()
-  fontImg.src = FONT_URL
+  let fontImg = new Image()
+  let skipNextKeydown = false
+
+  function usesJapaneseFont (game) {
+    return game === 'afplus' || game === 'afeplus'
+  }
+
+  function fontUrlForGame (game) {
+    return usesJapaneseFont(game) ? FONT_URL_JP : FONT_URL_AC
+  }
+
+  function applyFontPickerStyle (game) {
+    const canvas = $('generatorCanvas')
+    if (!canvas) return
+    canvas.classList.remove('font-picker-ac', 'font-picker-jp')
+    if (usesJapaneseFont(game)) {
+      canvas.classList.add('font-picker-jp')
+      canvas.width = 384
+      canvas.height = 512
+    } else {
+      canvas.classList.add('font-picker-ac')
+      canvas.width = 450
+      canvas.height = 600
+    }
+  }
+
+  function redrawAllStringCanvases () {
+    Object.keys(stringBuffers).forEach(function (id) {
+      if (!id.endsWith('_mirror')) redrawCanvas(id)
+    })
+  }
+
+  function loadFontForGame (game) {
+    const url = fontUrlForGame(game)
+    applyFontPickerStyle(game)
+    return new Promise(function (resolve) {
+      if (fontImg.src === url && fontImg.complete && fontImg.naturalWidth) {
+        redrawAllStringCanvases()
+        resolve()
+        return
+      }
+      fontImg = new Image()
+      fontImg.onload = function () {
+        redrawAllStringCanvases()
+        resolve()
+      }
+      fontImg.onerror = function () {
+        console.warn('Failed to load font image:', url)
+        resolve()
+      }
+      fontImg.src = url
+    })
+  }
 
   function $(id) {
     return document.getElementById(id)
@@ -115,16 +174,8 @@
     const cw = canvas.width / cols
     const ch = canvas.height / rows
     const ctx = canvas.getContext('2d')
-    const map = GAME_CONFIG[currentGame].charMap()
     for (let i = 0; i < buf.length; i++) {
-      const code = buf[i]
-      let fontIdx = code
-      if (currentGame === 'ac') {
-        fontIdx = code
-      } else {
-        fontIdx = character_map.indexOf(map[code])
-        if (fontIdx < 0) fontIdx = 0x20
-      }
+      const fontIdx = buf[i]
       const fx = fontIdx % 16
       const fy = Math.floor(fontIdx / 16)
       const row = Math.floor(i / cols)
@@ -168,14 +219,32 @@
     redrawCanvas(canvasId)
   }
 
+  function lookupCharCode (key) {
+    if (!key) return null
+    const map = GAME_CONFIG[currentGame].charMap()
+    const code = map.indexOf(key)
+    return code !== -1 ? code : null
+  }
+
+  function insertTextFromKeyboard (text) {
+    if (!text || !selectedBuffer) return
+    for (let i = 0; i < text.length; i++) {
+      const code = lookupCharCode(text.charAt(i))
+      if (code === null) continue
+      addChar(code)
+    }
+  }
+
+  function handleKeyboardChar (key, event) {
+    const code = lookupCharCode(key)
+    if (code === null) return false
+    if (event) event.preventDefault()
+    addChar(code)
+    return true
+  }
+
   function addChar (code) {
     if (!selectedBuffer) return
-    if (currentGame !== 'ac') {
-      const map = GAME_CONFIG[currentGame].charMap()
-      const ch = character_map[code]
-      code = map.indexOf(ch)
-      if (code < 0) return
-    }
     selectedBuffer[selectedCharIdx] = code
     const max = selectedBuffer.length - 1
     if (selectedCharIdx < max) selectedCharIdx++
@@ -476,6 +545,7 @@
     buildStringFields()
     populateCodeTypes()
     $('codeTypeInfoLabel').textContent = GAME_CONFIG[game].infoDefault
+    loadFontForGame(game)
     loadItems()
   }
 
@@ -606,12 +676,17 @@
         })
         return
       }
-      if (e.key.length === 1 && currentGame === 'ac') {
-        const code = character_map.indexOf(e.key)
-        if (code !== -1) {
-          e.preventDefault()
-          addChar(code)
-        }
+      if (e.key.length === 1 && !e.isComposing && !skipNextKeydown) {
+        handleKeyboardChar(e.key, e)
+      }
+    })
+
+    document.addEventListener('compositionend', function (e) {
+      if (!selectedBuffer || currentMode !== 'generate') return
+      if (usesJapaneseFont(currentGame) && e.data) {
+        skipNextKeydown = true
+        setTimeout(function () { skipNextKeydown = false }, 0)
+        insertTextFromKeyboard(e.data)
       }
     })
   }
@@ -621,11 +696,6 @@
     await loadVillagers()
     switchGame('ac')
     switchMode('generate')
-    fontImg.onload = function () {
-      Object.keys(stringBuffers).forEach(id => {
-        if (!id.endsWith('_preview')) redrawCanvas(id)
-      })
-    }
   }
 
   if (document.readyState === 'loading') {

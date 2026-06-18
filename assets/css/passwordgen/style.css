@@ -52,11 +52,21 @@
 .passwordgen-tool canvas.font-picker {
   display: block;
   width: 100%;
+  cursor: crosshair;
+}
+
+.passwordgen-tool canvas.font-picker-ac {
   max-width: 450px;
   height: 600px;
   background-image: url('https://dodo.ac/np/images/8/8a/Animal_Crossing_PAL_Font.svg');
   background-size: 450px 600px;
-  cursor: crosshair;
+}
+
+.passwordgen-tool canvas.font-picker-jp {
+  max-width: 384px;
+  height: 512px;
+  background-image: url('../../img/passwordgen/dnm-jp-font.png');
+  background-size: 384px 512px;
 }
 
 .passwordgen-tool canvas.password-output {
@@ -104,8 +114,13 @@
 }
 
 @media (max-width: 768px) {
-  .passwordgen-tool canvas.font-picker {
+  .passwordgen-tool canvas.font-picker-ac {
     height: 300px;
     background-size: 225px 300px;
+  }
+
+  .passwordgen-tool canvas.font-picker-jp {
+    height: 256px;
+    background-size: 192px 256px;
   }
 }
