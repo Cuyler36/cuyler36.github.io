@@ -19,6 +19,7 @@ footer_text: >
 post_navigation: true
 katex: false
 color_theme: light
+excerpt: true
 
 # PAGINATION (keep /page2/ URLs from the old site)
 paginate: 5
