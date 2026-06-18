@@ -21,7 +21,7 @@ Technical write-ups about GameCube-era Animal Crossing internals, custom code, a
 |------|-----|-------------|
 | Animal Forest e+ Bingo | [/bingo/](https://cuyler36.github.io/bingo/) | Seeded bingo card generator for speedrun races |
 | NES Tags | [/nestags/](https://cuyler36.github.io/nestags/) | Reference for NES emulator command tags used in AC |
-| Password Generator | [/passwordgen/](https://cuyler36.github.io/passwordgen/) | Animal Crossing password encode/decode (UI in progress) |
+| Password Generator | [/passwordgen/](https://cuyler36.github.io/passwordgen/) | Secret password generator/decoder for Animal Crossing, Doubutsu no Mori+, and Doubutsu no Mori e+ |
 | Object Delivery Center | [/objcenter/](https://cuyler36.github.io/objcenter/) | Interactive canvas tool (hidden from main nav) |
 
 The home page also includes search and tag indexes via the [Type on Strap](https://github.com/sylhare/Type-on-Strap) theme.

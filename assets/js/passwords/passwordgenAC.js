@@ -383,6 +383,19 @@ function ASCII2ACBytes (str) {
   return data
 }
 
+function Uint8Array2ACBytes (str) {
+  const data = new Uint8Array(PARAM_STRING_SIZE)
+  for (var i = 0; i < PARAM_STRING_SIZE; i++) {
+    if (str.length > i) {
+      data[i] = str[i] & 0xff
+    } else {
+      data[i] = 0x20
+    }
+  }
+
+  return data
+}
+
 /************************************************************************************************
  * ENCODER SECTION
  ***********************************************************************************************/
@@ -408,13 +421,16 @@ function MakePasscode (
       npc_code = 0xff
       break
 
+    case CODE_TYPES.CardE:
+      break
+
     case CODE_TYPES.Popular:
       hit_rate_idx = 4
       break
 
     case CODE_TYPES.Magazine:
-      hit_rate_idx &= 3
       npc_type = (hit_rate_idx >> 2) & 1
+      hit_rate_idx &= 3
       npc_code = 0xff
       break
 
@@ -456,7 +472,7 @@ function MakePasscode (
     checksum += data[10 + i]
   }
 
-  checksum += item_id & 0xff
+  checksum += item_id
   checksum += npc_code
   data[0] |= (checksum & 3) << 3
 
@@ -591,7 +607,17 @@ function ChangeCommonFontCode (password_data) {
   return password
 }
 
-/* Generates a password string from input */
+/* Converts password data to a Uint8Array */
+function ChangeCommonFontCode_Uint8Array (password_data) {
+  var password = new Uint8Array(PASSWORD_STR_SIZE)
+  for (var i = 0; i < PASSWORD_STR_SIZE; i++) {
+    password[i] = usable2fontnum[password_data[i]]
+  }
+
+  return password
+}
+
+/* Generates a password Uint8Array from input */
 function MakePassword (
   code_type,
   hit_rate_idx,
@@ -604,29 +630,21 @@ function MakePassword (
   var data = MakePasscode(
     code_type,
     hit_rate_idx,
-    ASCII2ACBytes(str0),
-    ASCII2ACBytes(str1),
+    Uint8Array2ACBytes(str0),
+    Uint8Array2ACBytes(str1),
     item_id,
     npc_type,
     npc_code
   )
-  //console.log(`MakePasscode: ${data}`);
   EncodeSubstitutionCipher(data)
-  //console.log(`EncodeSubstitutionCipher: ${data}`);
   TranspositionCipher(data, true, 0)
-  //console.log(`TranspositionCipher: ${data}`);
   EncodeBitShuffle(data, 0)
-  //console.log(`EncodeBitShuffle: ${data}`);
   EncodeChangeRSACipher(data)
-  //console.log(`EncodeChangeRSACipher: ${data}`);
   EncodeBitMixCode(data)
-  //console.log(`EncodeBitMixCode: ${data}`);
   EncodeBitShuffle(data, 1)
-  //console.log(`EncodeBitShuffle: ${data}`);
   TranspositionCipher(data, false, 1)
-  //console.log(`TranspositionCipher: ${data}`);
 
-  return ChangeCommonFontCode(Change6BitsCode(data))
+  return ChangeCommonFontCode_Uint8Array(Change6BitsCode(data))
 }
 
 /************************************************************************************************
@@ -874,4 +892,14 @@ function CheckIsPasswordValid (password) {
   chksum += password.NPCCode
 
   return (chksum & 3) == password.Checksum
+}
+
+/* Utility function to convert a byte array to Unicode string */
+function ConvertBytesToUnicodeString (bytes) {
+  var str = ''
+  for (var i = 0; i < bytes.length; i++) {
+    str += character_map[bytes[i]]
+  }
+
+  return str
 }

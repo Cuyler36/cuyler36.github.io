@@ -1,0 +1,111 @@
+.passwordgen-tool {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.passwordgen-tool fieldset {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.passwordgen-tool legend {
+  width: auto;
+  border: 0;
+  padding: 0 0.5rem;
+  margin-bottom: 0;
+  font-size: 1.1rem;
+}
+
+.passwordgen-layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.passwordgen-input-panel {
+  flex: 1 1 320px;
+  min-width: 280px;
+}
+
+.passwordgen-font-panel {
+  flex: 0 1 450px;
+}
+
+.passwordgen-tool h3 {
+  font-size: 1rem;
+  margin: 1rem 0 0.5rem;
+}
+
+.passwordgen-tool canvas.text-canvas {
+  display: block;
+  width: 100%;
+  max-width: 280px;
+  height: 40px;
+  background: #fff;
+  border: 2px solid #000;
+  cursor: text;
+  margin-bottom: 0.5rem;
+}
+
+.passwordgen-tool canvas.font-picker {
+  display: block;
+  width: 100%;
+  max-width: 450px;
+  height: 600px;
+  background-image: url('https://dodo.ac/np/images/8/8a/Animal_Crossing_PAL_Font.svg');
+  background-size: 450px 600px;
+  cursor: crosshair;
+}
+
+.passwordgen-tool canvas.password-output {
+  display: block;
+  width: 100%;
+  max-width: 420px;
+  height: 80px;
+  background: #fff;
+  border: 2px solid #000;
+}
+
+.passwordgen-tool .game-tabs {
+  margin-bottom: 1rem;
+}
+
+.passwordgen-tool .game-tabs .btn {
+  margin-right: 0.35rem;
+  margin-bottom: 0.35rem;
+}
+
+.passwordgen-tool .mode-tabs {
+  margin-bottom: 1rem;
+}
+
+.passwordgen-tool .item-search {
+  width: 100%;
+  max-width: 280px;
+}
+
+.passwordgen-tool .help-text {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.passwordgen-tool .decode-result {
+  font-family: monospace;
+  white-space: pre-wrap;
+  background: #f7f7f7;
+  padding: 0.75rem;
+  border-radius: 4px;
+}
+
+.passwordgen-tool .hidden {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .passwordgen-tool canvas.font-picker {
+    height: 300px;
+    background-size: 225px 300px;
+  }
+}

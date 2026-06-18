@@ -1,0 +1,1078 @@
+{
+    "villagers": [
+        {
+            "name": "Bob",
+            "id": "0x00"
+        },
+        {
+            "name": "Olivia",
+            "id": "0x01"
+        },
+        {
+            "name": "Mitzi",
+            "id": "0x02"
+        },
+        {
+            "name": "Kiki",
+            "id": "0x03"
+        },
+        {
+            "name": "Tangy",
+            "id": "0x04"
+        },
+        {
+            "name": "Kabuki",
+            "id": "0x05"
+        },
+        {
+            "name": "Tabby",
+            "id": "0x06"
+        },
+        {
+            "name": "Monique",
+            "id": "0x07"
+        },
+        {
+            "name": "Stinky",
+            "id": "0x08"
+        },
+        {
+            "name": "Purrl",
+            "id": "0x09"
+        },
+        {
+            "name": "Kitty",
+            "id": "0x0A"
+        },
+        {
+            "name": "Tom",
+            "id": "0x0B"
+        },
+        {
+            "name": "Rosie",
+            "id": "0x0C"
+        },
+        {
+            "name": "Nosegay",
+            "id": "0x0D"
+        },
+        {
+            "name": "Zoe",
+            "id": "0x0E"
+        },
+        {
+            "name": "Pango",
+            "id": "0x0F"
+        },
+        {
+            "name": "Cyrano",
+            "id": "0x10"
+        },
+        {
+            "name": "Snooty",
+            "id": "0x11"
+        },
+        {
+            "name": "Teddy",
+            "id": "0x12"
+        },
+        {
+            "name": "Chow",
+            "id": "0x13"
+        },
+        {
+            "name": "Dozer",
+            "id": "0x14"
+        },
+        {
+            "name": "Nate",
+            "id": "0x15"
+        },
+        {
+            "name": "Groucho",
+            "id": "0x16"
+        },
+        {
+            "name": "Tutu",
+            "id": "0x17"
+        },
+        {
+            "name": "Ursala",
+            "id": "0x18"
+        },
+        {
+            "name": "Grizzly",
+            "id": "0x19"
+        },
+        {
+            "name": "Pinky",
+            "id": "0x1A"
+        },
+        {
+            "name": "Jay",
+            "id": "0x1B"
+        },
+        {
+            "name": "Twiggy",
+            "id": "0x1C"
+        },
+        {
+            "name": "Anchovy",
+            "id": "0x1D"
+        },
+        {
+            "name": "Piper",
+            "id": "0x1E"
+        },
+        {
+            "name": "Admiral",
+            "id": "0x1F"
+        },
+        {
+            "name": "Otis",
+            "id": "0x20"
+        },
+        {
+            "name": "Robin",
+            "id": "0x21"
+        },
+        {
+            "name": "Midge",
+            "id": "0x22"
+        },
+        {
+            "name": "Ace",
+            "id": "0x23"
+        },
+        {
+            "name": "Twirp",
+            "id": "0x24"
+        },
+        {
+            "name": "Chuck",
+            "id": "0x25"
+        },
+        {
+            "name": "Stu",
+            "id": "0x26"
+        },
+        {
+            "name": "Goose",
+            "id": "0x27"
+        },
+        {
+            "name": "Betty",
+            "id": "0x28"
+        },
+        {
+            "name": "Hector",
+            "id": "0x29"
+        },
+        {
+            "name": "Egbert",
+            "id": "0x2A"
+        },
+        {
+            "name": "Ava",
+            "id": "0x2B"
+        },
+        {
+            "name": "Hank",
+            "id": "0x2C"
+        },
+        {
+            "name": "Leigh",
+            "id": "0x2D"
+        },
+        {
+            "name": "Rhoda",
+            "id": "0x2E"
+        },
+        {
+            "name": "Vladimir",
+            "id": "0x2F"
+        },
+        {
+            "name": "Murphy",
+            "id": "0x30"
+        },
+        {
+            "name": "Cupcake",
+            "id": "0x31"
+        },
+        {
+            "name": "Kody",
+            "id": "0x32"
+        },
+        {
+            "name": "Maple",
+            "id": "0x33"
+        },
+        {
+            "name": "Pudge",
+            "id": "0x34"
+        },
+        {
+            "name": "Olive",
+            "id": "0x35"
+        },
+        {
+            "name": "Poncho",
+            "id": "0x36"
+        },
+        {
+            "name": "Bluebear",
+            "id": "0x37"
+        },
+        {
+            "name": "Patty",
+            "id": "0x38"
+        },
+        {
+            "name": "Petunia",
+            "id": "0x39"
+        },
+        {
+            "name": "Bessie",
+            "id": "0x3A"
+        },
+        {
+            "name": "Belle",
+            "id": "0x3B"
+        },
+        {
+            "name": "Alfonso",
+            "id": "0x3C"
+        },
+        {
+            "name": "Boots",
+            "id": "0x3D"
+        },
+        {
+            "name": "Liz",
+            "id": "0x3E"
+        },
+        {
+            "name": "Biskit",
+            "id": "0x3F"
+        },
+        {
+            "name": "Goldie",
+            "id": "0x40"
+        },
+        {
+            "name": "Daisy",
+            "id": "0x41"
+        },
+        {
+            "name": "Lucky",
+            "id": "0x42"
+        },
+        {
+            "name": "Portia",
+            "id": "0x43"
+        },
+        {
+            "name": "Maddie",
+            "id": "0x44"
+        },
+        {
+            "name": "Butch",
+            "id": "0x45"
+        },
+        {
+            "name": "Bill",
+            "id": "0x46"
+        },
+        {
+            "name": "Pompom",
+            "id": "0x47"
+        },
+        {
+            "name": "Joey",
+            "id": "0x48"
+        },
+        {
+            "name": "Scoot",
+            "id": "0x49"
+        },
+        {
+            "name": "Derwin",
+            "id": "0x4A"
+        },
+        {
+            "name": "Freckles",
+            "id": "0x4B"
+        },
+        {
+            "name": "Paolo",
+            "id": "0x4C"
+        },
+        {
+            "name": "Dizzy",
+            "id": "0x4D"
+        },
+        {
+            "name": "Axel",
+            "id": "0x4E"
+        },
+        {
+            "name": "Emerald",
+            "id": "0x4F"
+        },
+        {
+            "name": "Tad",
+            "id": "0x50"
+        },
+        {
+            "name": "Wart Jr",
+            "id": "0x51"
+        },
+        {
+            "name": "Cousteau",
+            "id": "0x52"
+        },
+        {
+            "name": "Puddles",
+            "id": "0x53"
+        },
+        {
+            "name": "Lily",
+            "id": "0x54"
+        },
+        {
+            "name": "Jeremiah",
+            "id": "0x55"
+        },
+        {
+            "name": "Huck",
+            "id": "0x56"
+        },
+        {
+            "name": "Camofrog",
+            "id": "0x57"
+        },
+        {
+            "name": "Ribbot",
+            "id": "0x58"
+        },
+        {
+            "name": "Prince",
+            "id": "0x59"
+        },
+        {
+            "name": "Jambette",
+            "id": "0x5A"
+        },
+        {
+            "name": "Billy",
+            "id": "0x5B"
+        },
+        {
+            "name": "Chevre",
+            "id": "0x5C"
+        },
+        {
+            "name": "Iggy",
+            "id": "0x5D"
+        },
+        {
+            "name": "Gruff",
+            "id": "0x5E"
+        },
+        {
+            "name": "Sven",
+            "id": "0x5F"
+        },
+        {
+            "name": "Velma",
+            "id": "0x60"
+        },
+        {
+            "name": "Jane",
+            "id": "0x61"
+        },
+        {
+            "name": "Cesar",
+            "id": "0x62"
+        },
+        {
+            "name": "Louie",
+            "id": "0x63"
+        },
+        {
+            "name": "Peewee",
+            "id": "0x64"
+        },
+        {
+            "name": "Rollo",
+            "id": "0x65"
+        },
+        {
+            "name": "Bubbles",
+            "id": "0x66"
+        },
+        {
+            "name": "Bertha",
+            "id": "0x67"
+        },
+        {
+            "name": "Elmer",
+            "id": "0x68"
+        },
+        {
+            "name": "Winnie",
+            "id": "0x69"
+        },
+        {
+            "name": "Savannah",
+            "id": "0x6A"
+        },
+        {
+            "name": "Ed",
+            "id": "0x6B"
+        },
+        {
+            "name": "Cleo",
+            "id": "0x6C"
+        },
+        {
+            "name": "Peaches",
+            "id": "0x6D"
+        },
+        {
+            "name": "Buck",
+            "id": "0x6E"
+        },
+        {
+            "name": "Carrie",
+            "id": "0x6F"
+        },
+        {
+            "name": "Mathilda",
+            "id": "0x70"
+        },
+        {
+            "name": "Marcy",
+            "id": "0x71"
+        },
+        {
+            "name": "Kitt",
+            "id": "0x72"
+        },
+        {
+            "name": "Valise",
+            "id": "0x73"
+        },
+        {
+            "name": "Astrid",
+            "id": "0x74"
+        },
+        {
+            "name": "Sydney",
+            "id": "0x75"
+        },
+        {
+            "name": "Gonzo",
+            "id": "0x76"
+        },
+        {
+            "name": "Ozzie",
+            "id": "0x77"
+        },
+        {
+            "name": "Yuka",
+            "id": "0x78"
+        },
+        {
+            "name": "Huggy",
+            "id": "0x79"
+        },
+        {
+            "name": "Rex",
+            "id": "0x7A"
+        },
+        {
+            "name": "Aziz",
+            "id": "0x7B"
+        },
+        {
+            "name": "Leopold",
+            "id": "0x7C"
+        },
+        {
+            "name": "Samson",
+            "id": "0x7D"
+        },
+        {
+            "name": "Penny",
+            "id": "0x7E"
+        },
+        {
+            "name": "Dora",
+            "id": "0x7F"
+        },
+        {
+            "name": "Chico",
+            "id": "0x80"
+        },
+        {
+            "name": "Candi",
+            "id": "0x81"
+        },
+        {
+            "name": "Rizzo",
+            "id": "0x82"
+        },
+        {
+            "name": "Anicotti",
+            "id": "0x83"
+        },
+        {
+            "name": "Limberg",
+            "id": "0x84"
+        },
+        {
+            "name": "Carmen",
+            "id": "0x85"
+        },
+        {
+            "name": "Octavian",
+            "id": "0x86"
+        },
+        {
+            "name": "Sandy",
+            "id": "0x87"
+        },
+        {
+            "name": "Sprocket",
+            "id": "0x88"
+        },
+        {
+            "name": "Rio",
+            "id": "0x89"
+        },
+        {
+            "name": "Queenie",
+            "id": "0x8A"
+        },
+        {
+            "name": "Apollo",
+            "id": "0x8B"
+        },
+        {
+            "name": "Buzz",
+            "id": "0x8C"
+        },
+        {
+            "name": "Quetzal",
+            "id": "0x8D"
+        },
+        {
+            "name": "Amelia",
+            "id": "0x8E"
+        },
+        {
+            "name": "Pierce",
+            "id": "0x8F"
+        },
+        {
+            "name": "Roald",
+            "id": "0x90"
+        },
+        {
+            "name": "Aurora",
+            "id": "0x91"
+        },
+        {
+            "name": "Hopper",
+            "id": "0x92"
+        },
+        {
+            "name": "Cube",
+            "id": "0x93"
+        },
+        {
+            "name": "Puck",
+            "id": "0x94"
+        },
+        {
+            "name": "Gwen",
+            "id": "0x95"
+        },
+        {
+            "name": "Friga",
+            "id": "0x96"
+        },
+        {
+            "name": "Curly",
+            "id": "0x97"
+        },
+        {
+            "name": "Truffles",
+            "id": "0x98"
+        },
+        {
+            "name": "Spork",
+            "id": "0x99"
+        },
+        {
+            "name": "Hugh",
+            "id": "0x9A"
+        },
+        {
+            "name": "Rasher",
+            "id": "0x9B"
+        },
+        {
+            "name": "Sue E",
+            "id": "0x9C"
+        },
+        {
+            "name": "Hambo",
+            "id": "0x9D"
+        },
+        {
+            "name": "Lucy",
+            "id": "0x9E"
+        },
+        {
+            "name": "Cobb",
+            "id": "0x9F"
+        },
+        {
+            "name": "Boris",
+            "id": "0xA0"
+        },
+        {
+            "name": "Bunnie",
+            "id": "0xA1"
+        },
+        {
+            "name": "Doc",
+            "id": "0xA2"
+        },
+        {
+            "name": "Gaston",
+            "id": "0xA3"
+        },
+        {
+            "name": "Coco",
+            "id": "0xA4"
+        },
+        {
+            "name": "Gabi",
+            "id": "0xA5"
+        },
+        {
+            "name": "Dotty",
+            "id": "0xA6"
+        },
+        {
+            "name": "Genji",
+            "id": "0xA7"
+        },
+        {
+            "name": "Snake",
+            "id": "0xA8"
+        },
+        {
+            "name": "Claude",
+            "id": "0xA9"
+        },
+        {
+            "name": "Tank",
+            "id": "0xAA"
+        },
+        {
+            "name": "Spike",
+            "id": "0xAB"
+        },
+        {
+            "name": "Tiara",
+            "id": "0xAC"
+        },
+        {
+            "name": "Vesta",
+            "id": "0xAD"
+        },
+        {
+            "name": "Filbert",
+            "id": "0xAE"
+        },
+        {
+            "name": "Hazel",
+            "id": "0xAF"
+        },
+        {
+            "name": "Peanut",
+            "id": "0xB0"
+        },
+        {
+            "name": "Pecan",
+            "id": "0xB1"
+        },
+        {
+            "name": "Ricky",
+            "id": "0xB2"
+        },
+        {
+            "name": "Static",
+            "id": "0xB3"
+        },
+        {
+            "name": "Mint",
+            "id": "0xB4"
+        },
+        {
+            "name": "Nibbles",
+            "id": "0xB5"
+        },
+        {
+            "name": "Tybalt",
+            "id": "0xB6"
+        },
+        {
+            "name": "Rolf",
+            "id": "0xB7"
+        },
+        {
+            "name": "Bangle",
+            "id": "0xB8"
+        },
+        {
+            "name": "Lobo",
+            "id": "0xB9"
+        },
+        {
+            "name": "Freya",
+            "id": "0xBA"
+        },
+        {
+            "name": "Chief",
+            "id": "0xBB"
+        },
+        {
+            "name": "Weber",
+            "id": "0xBC"
+        },
+        {
+            "name": "Mallary",
+            "id": "0xBD"
+        },
+        {
+            "name": "Wolfgang",
+            "id": "0xBE"
+        },
+        {
+            "name": "Hornsby",
+            "id": "0xBF"
+        },
+        {
+            "name": "Oxford",
+            "id": "0xC0"
+        },
+        {
+            "name": "T-Bone",
+            "id": "0xC1"
+        },
+        {
+            "name": "Biff",
+            "id": "0xC2"
+        },
+        {
+            "name": "Opal",
+            "id": "0xC3"
+        },
+        {
+            "name": "Bones",
+            "id": "0xC4"
+        },
+        {
+            "name": "Bea",
+            "id": "0xC5"
+        },
+        {
+            "name": "Bitty",
+            "id": "0xC6"
+        },
+        {
+            "name": "Rocco",
+            "id": "0xC7"
+        },
+        {
+            "name": "Lulu",
+            "id": "0xC8"
+        },
+        {
+            "name": "Blaire",
+            "id": "0xC9"
+        },
+        {
+            "name": "Sally",
+            "id": "0xCA"
+        },
+        {
+            "name": "Ellie",
+            "id": "0xCB"
+        },
+        {
+            "name": "Eloise",
+            "id": "0xCC"
+        },
+        {
+            "name": "Alli",
+            "id": "0xCD"
+        },
+        {
+            "name": "Pippy",
+            "id": "0xCE"
+        },
+        {
+            "name": "Eunice",
+            "id": "0xCF"
+        },
+        {
+            "name": "Baabara",
+            "id": "0xD0"
+        },
+        {
+            "name": "Fang",
+            "id": "0xD1"
+        },
+        {
+            "name": "Deena",
+            "id": "0xD2"
+        },
+        {
+            "name": "Pate",
+            "id": "0xD3"
+        },
+        {
+            "name": "Stella",
+            "id": "0xD4"
+        },
+        {
+            "name": "Cashmere",
+            "id": "0xD5"
+        },
+        {
+            "name": "Woolio",
+            "id": "0xD6"
+        },
+        {
+            "name": "Cookie",
+            "id": "0xD7"
+        },
+        {
+            "name": "Maelle",
+            "id": "0xD8"
+        },
+        {
+            "name": "O'Hare",
+            "id": "0xD9"
+        },
+        {
+            "name": "Bliss",
+            "id": "0xDA"
+        },
+        {
+            "name": "Drift",
+            "id": "0xDB"
+        },
+        {
+            "name": "Bud",
+            "id": "0xDC"
+        },
+        {
+            "name": "Boomer",
+            "id": "0xDD"
+        },
+        {
+            "name": "Elina",
+            "id": "0xDE"
+        },
+        {
+            "name": "Flash",
+            "id": "0xDF"
+        },
+        {
+            "name": "Dobie",
+            "id": "0xE0"
+        },
+        {
+            "name": "Flossie",
+            "id": "0xE1"
+        },
+        {
+            "name": "Annalise",
+            "id": "0xE2"
+        },
+        {
+            "name": "Plucky",
+            "id": "0xE3"
+        },
+        {
+            "name": "Faith",
+            "id": "0xE4"
+        },
+        {
+            "name": "Yodel",
+            "id": "0xE5"
+        },
+        {
+            "name": "Rowan",
+            "id": "0xE6"
+        },
+        {
+            "name": "June",
+            "id": "0xE7"
+        },
+        {
+            "name": "Cheri",
+            "id": "0xE8"
+        },
+        {
+            "name": "Pigleg",
+            "id": "0xE9"
+        },
+        {
+            "name": "Ankha",
+            "id": "0xEA"
+        },
+        {
+            "name": "Punchy",
+            "id": "0xEB"
+        }
+    ],
+    "special": [
+        {
+            "name": "Tom Nook",
+            "id": "0x00"
+        },
+        {
+            "name": "Wendell",
+            "id": "0x01"
+        },
+        {
+            "name": "Saharah",
+            "id": "0x02"
+        },
+        {
+            "name": "Gracie",
+            "id": "0x03"
+        },
+        {
+            "name": "Joan",
+            "id": "0x04"
+        },
+        {
+            "name": "Katrina",
+            "id": "0x05"
+        },
+        {
+            "name": "Copper",
+            "id": "0x06"
+        },
+        {
+            "name": "Jack",
+            "id": "0x07"
+        },
+        {
+            "name": "Jingle",
+            "id": "0x08"
+        },
+        {
+            "name": "Pete",
+            "id": "0x09"
+        },
+        {
+            "name": "Pelly",
+            "id": "0x0A"
+        },
+        {
+            "name": "Phyllis",
+            "id": "0x0B"
+        },
+        {
+            "name": "Rover",
+            "id": "0x0C"
+        },
+        {
+            "name": "K.K.",
+            "id": "0x0D"
+        },
+        {
+            "name": "Chip",
+            "id": "0x0E"
+        },
+        {
+            "name": "Booker",
+            "id": "0x0F"
+        },
+        {
+            "name": "Timmy",
+            "id": "0x10"
+        },
+        {
+            "name": "Tommy",
+            "id": "0x11"
+        },
+        {
+            "name": "Redd",
+            "id": "0x12"
+        },
+        {
+            "name": "Resetti",
+            "id": "0x13"
+        },
+        {
+            "name": "Gulliver",
+            "id": "0x14"
+        },
+        {
+            "name": "Porter",
+            "id": "0x15"
+        },
+        {
+            "name": "Blathers",
+            "id": "0x16"
+        },
+        {
+            "name": "Kapp'n",
+            "id": "0x17"
+        },
+        {
+            "name": "Mable",
+            "id": "0x18"
+        },
+        {
+            "name": "Sable",
+            "id": "0x19"
+        },
+        {
+            "name": "Tortimer",
+            "id": "0x1A"
+        },
+        {
+            "name": "Wisp",
+            "id": "0x1B"
+        },
+        {
+            "name": "Don",
+            "id": "0x1C"
+        },
+        {
+            "name": "Blanca",
+            "id": "0x1D"
+        },
+        {
+            "name": "Franklin",
+            "id": "0x1E"
+        },
+        {
+            "name": "Farley",
+            "id": "0x1F"
+        }
+    ]
+}
