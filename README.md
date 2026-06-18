@@ -30,7 +30,7 @@ The home page also includes search and tag indexes via the [Type on Strap](https
 
 Requirements:
 
-- Ruby **3.0+**
+- Ruby **3.3+**
 - Bundler **2.x**
 
 ```bash
@@ -54,15 +54,16 @@ Output is written to `_site/`.
 
 ```text
 ├── _posts/              # Blog posts
-├── _layouts/            # Page layouts (blog, tools, etc.)
-├── _includes/           # Shared HTML partials
-├── _sass/               # Stylesheets
+├── _layouts/            # Custom page layouts (tools + bootstrap page override)
+├── _data/               # Theme icon/social config
 ├── pages/               # Standalone site pages (bingo, nestags, ...)
 ├── assets/              # JS, CSS, images, fonts
 ├── _config.yml          # Site configuration
-├── Gemfile              # Ruby dependencies (via type-on-strap.gemspec)
+├── Gemfile              # Ruby dependencies (Jekyll 4 + type-on-strap gem)
 └── .github/workflows/   # CI build on push/PR to master
 ```
+
+Theme layouts, includes, and styles come from the [`type-on-strap`](https://rubygems.org/gems/type-on-strap) gem (not vendored in this repo).
 
 ## CI and deployment
 
@@ -71,4 +72,4 @@ Output is written to `_site/`.
 
 ## Theme and license
 
-The site is built with [Jekyll](https://jekyllrb.com) and based on the [Type on Strap](https://github.com/sylhare/Type-on-Strap) theme (MIT). See [LICENSE](LICENSE) for theme licensing; blog content and custom tools are authored for this site.
+The site is built with [Jekyll 4](https://jekyllrb.com) and the [Type on Strap](https://github.com/sylhare/Type-on-Strap) **2.x** theme gem (MIT). See [LICENSE](LICENSE) for theme licensing; blog content and custom tools are authored for this site.
