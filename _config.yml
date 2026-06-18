@@ -4,76 +4,44 @@ url: "https://cuyler36.github.io"
 title: Cuyler's blog
 description: "Cuyler's blog"
 
+# THEME CONFIGURATION (Type on Strap 2.x)
+avatar: assets/img/C.png
+favicon: assets/favicon.ico
 
-# THEME-SPECIFIC CONFIGURATION
-theme_settings:
-  # Meta
-  title: Cuyler's blog
-  avatar: assets/img/C.png
-  favicon: assets/favicon.ico
+header_text: >
+  <p>Just some rambling about Animal Crossing <br> and reverse engineering.</p>
+header_feature_image: assets/img/Banner.png
+header_feature_image_responsive: false
 
-  # Header and footer text
-  header_text: >
-     <p>Just some rambling about Animal Crossing <br> and reverse engineering.</p>
-  header_text_feature_image: assets/img/Banner.png
-  footer_text: >
-   Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+footer_text: >
+  Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
 
-  # Icons
-  rss: true
-  github: "cuyler36"
-  twitter: "CuylerAC"
-  youtube: "https://www.youtube.com/c/Cuyler"
+post_navigation: true
+katex: false
+color_theme: light
 
-  # Sharing options
-  share_buttons:
-    twitter: true
-    reddit: true
-    email: true
-
-  # Scripts / Features
-  katex: false
-
-  special_page:
-    search:
-      icon: "search"
-      enabled: true
-    tags:
-      icon: "tags"
-      enabled: true
-
-  # Localization strings
-  str_follow_on: "Follow on"
-  str_rss_follow: "Follow RSS feed"
-  str_share_on: "Share on"
-  str_add_to: "Add to"
-  str_email: "Email"
-  str_tweet: "Tweet"
-  str_pin_it: "Pin it"
-  str_next_post: "Next post"
-  str_previous_post: "Previous post"
-  str_next_page: "Next"
-  str_previous_page: "Prev"
-  str_continue_reading: "Continue reading"
-  str_javascript_required_disqus: "Please enable JavaScript to view comments."
-
-  # Colours, typography and padding
-  google_fonts: "Source+Sans+Pro:400,700,700italic,400italic"
-
-  # Post navigation
-  post_navigation: true
-
-
-# PAGINATION
+# PAGINATION (keep /page2/ URLs from the old site)
 paginate: 5
 paginate_path: "/page:num/"
 
-
 # BUILD SETTINGS
-markdown: kramdown
-highlighter: rouge
+theme: type-on-strap
+
 sass:
-  sass_dir: _sass
-  style: :compressed
-plugins: [jekyll-paginate, jekyll-seo-tag]
-exclude: ["Gemfile", "Gemfile.lock", "type-on-strap.gemspec", "*.gem", "LICENSE", "README.md", "screenshot.png", "node_modules", "vendor", ".idea/*"]
+  style: compressed
+  quiet_deps: true
+
+plugins:
+  - jekyll-paginate
+  - jekyll-seo-tag
+  - jekyll-feed
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - README.md
+  - node_modules
+  - vendor
+  - .idea
+  - .github
