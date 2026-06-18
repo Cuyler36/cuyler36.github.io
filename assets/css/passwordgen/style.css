@@ -40,8 +40,6 @@
 
 .passwordgen-tool canvas.text-canvas {
   display: block;
-  width: 100%;
-  max-width: 280px;
   height: 40px;
   background: #fff;
   border: 2px solid #000;
@@ -71,9 +69,6 @@
 
 .passwordgen-tool canvas.password-output {
   display: block;
-  width: 100%;
-  max-width: 420px;
-  height: 80px;
   background: #fff;
   border: 2px solid #000;
 }

@@ -15,6 +15,30 @@
 
   const FONT_URL_AC = assetUrl('animal-crossing-pal-font.svg')
   const FONT_URL_JP = assetUrl('dnm-jp-font.png')
+  const TEXT_CHAR_WIDTH = 28
+  const TEXT_CHAR_HEIGHT = 40
+
+  function setTextCanvasSize (canvas, cols) {
+    const w = cols * TEXT_CHAR_WIDTH
+    canvas.width = w
+    canvas.height = TEXT_CHAR_HEIGHT
+    canvas.style.width = w + 'px'
+    canvas.style.maxWidth = w + 'px'
+  }
+
+  function sizePasswordCanvas () {
+    const cfg = GAME_CONFIG[currentGame]
+    const out = $('outPwdCanvas')
+    if (!out) return
+    const w = cfg.passwordCols * TEXT_CHAR_WIDTH
+    const h = cfg.passwordRows * TEXT_CHAR_HEIGHT
+    out.width = w
+    out.height = h
+    out.style.width = w + 'px'
+    out.style.height = h + 'px'
+    out.style.maxWidth = w + 'px'
+  }
+
   const DATA_BASE = document.querySelector('script[src*="passwordgen-ui"]')
     ? document.querySelector('script[src*="passwordgen-ui"]').src.replace(/passwordgen-ui\.js.*/, '../../data/passwords/')
     : '/assets/data/passwords/'
@@ -273,8 +297,7 @@
 
       const c = document.createElement('canvas')
       c.className = 'text-canvas'
-      c.width = spec.size * 28
-      c.height = 40
+      setTextCanvasSize(c, spec.size)
       c.dataset.fieldId = spec.id
       wrap.appendChild(c)
       stringCanvases[spec.id] = c
@@ -283,10 +306,9 @@
       cloneLabel.className = 'help-text'
       cloneLabel.textContent = spec.label
       canvasWrap.appendChild(cloneLabel)
-      const clone = c.cloneNode(true)
-      clone.width = c.width
-      clone.height = c.height
+      const clone = document.createElement('canvas')
       clone.className = 'text-canvas'
+      setTextCanvasSize(clone, spec.size)
       clone.dataset.fieldId = spec.id
       canvasWrap.appendChild(clone)
       stringCanvases[spec.id + '_mirror'] = clone
@@ -487,8 +509,7 @@
 
     const cfg = GAME_CONFIG[currentGame]
     const out = $('outPwdCanvas')
-    out.width = out.offsetWidth
-    out.height = out.offsetHeight
+    sizePasswordCanvas()
     clearCanvas(out)
     drawStringToCanvas(passwordBuffer, out, cfg.passwordCols, cfg.passwordRows)
 
@@ -548,6 +569,7 @@
     populateCodeTypes()
     $('codeTypeInfoLabel').textContent = GAME_CONFIG[game].infoDefault
     loadFontForGame(game)
+    sizePasswordCanvas()
     loadItems()
   }
 
