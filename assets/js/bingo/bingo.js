@@ -139,14 +139,14 @@ function Bingo(size, seed, difficulty, balance)
 	this.balanced = balance;
 
 	this.gamedata = null;
-	$.getJSON("../../../assets/js/bingo/settings.js", (function(bingo)
+	$.getJSON("/assets/js/bingo/settings.js", (function(bingo)
 	{
 		return function(data)
 		{
 			bingo.processGameData(data);
 			bingo.generateBoard();
 		}
-	})(this)).fail(function(){ console.log(arguments); });
+	})(this)).fail(function() { });
 
 	var board = this.board = [];
 	var table = this.table = $("<table id='bingo'>");
@@ -224,9 +224,8 @@ function Bingo(size, seed, difficulty, balance)
 	{
 		var tds = [];
 		$("#bingo td.goal." + $(this).attr("data-type")).each(function(i, x){ tds.push(x); });
-		console.log(tds.length, tds);
 
-		var win = window.open('https://cuyler36.github.io/bingo/popout/', '_blank', 'toolbar=no, location=no, directories=no, status=no, '
+		var win = window.open('/bingo/popout/', '_blank', 'toolbar=no, location=no, directories=no, status=no, '
 			+ 'menubar=no, scrollbars=no, resizable=yes, copyhistory=no, width=250, height=550');
 		win.addEventListener('load', (function(title, elems)
 		{
@@ -302,7 +301,6 @@ Bingo.prototype.generateBoard = function()
                 if (goalIndex >= goalsTable.length)
 				{
                     goalIndex = goalsTable.length - 1;
-					console.log(goalIndex, goalsTable.length);
 				}
 				
                 // Search for the range of goals that fit within our difficulty.
@@ -310,19 +308,14 @@ Bingo.prototype.generateBoard = function()
 				for (minDifficultyIdx = goalIndex; minDifficultyIdx > 0 && goalsTable[minDifficultyIdx-1].difficulty == goalsTable[minDifficultyIdx].difficulty; --minDifficultyIdx);
                 for (maxDifficultyIdx = goalIndex; maxDifficultyIdx < goalsTable.length - 1 && goalsTable[maxDifficultyIdx + 1].difficulty == goalsTable[maxDifficultyIdx].difficulty; ++maxDifficultyIdx);
 
-				console.log("Minimum difficulty index:", minDifficultyIdx, " | Max difficulty index:", maxDifficultyIdx);
-				
                 // Select the goal for the difficulty.
 				goalIndex = minDifficultyIdx + this.random.nextInt(maxDifficultyIdx - minDifficultyIdx);
-				console.log("Selected goal index for difficulty:", goalIndex);
-				console.log("Selected goal name:", goalsTable[goalIndex].name);
 
                 // Set goal.
                 goal = this.board[cardY][cardX].goal = goalsTable[goalIndex];
 			    if (!goal) continue;
 
 			    var vmods = ms["*"] || [], tags = goal.tags || [], valid = !usedgoals.contains(goal.id);
-				var invalidReason = "Valid goal.";
                 var img = null;
 
 				for (var k = 0; k < tags.length; ++k)
@@ -342,7 +335,6 @@ Bingo.prototype.generateBoard = function()
 					if (tdata && tdata.singleuse && tdata['@used'] && attempt < 75)
 					{
 						valid = false;
-						invalidReason = "Goal tag was already used & only one type of this tag is allowed!";
 					}
 					
 					for (var z = 0; z < this.board[cardY][cardX].groups.length; ++z)
@@ -350,7 +342,6 @@ Bingo.prototype.generateBoard = function()
 						if ((!allowmult && this.board[cardY][cardX].groups[z].contains(tags[k])) || this.board[cardY][cardX].groups[z].contains(negated))
 						{
 							valid = false;
-							invalidReason = "Goal tag was already used & allowmultiple is disabled!";
 						}
 					}
 				}
@@ -367,15 +358,10 @@ Bingo.prototype.generateBoard = function()
 					
 					break;
 				}
-				else
-				{
-					console.log("Goal [id]:", goal.id, "was not valid! Goal name:", goal.name, "Goal difficulty:", goal.difficulty, "Reason for invalidation:", invalidReason);
-				}
 				
 				// safety fallout
 				if (attempt > Bingo.MAXITERATIONS)
 				{
-					console.log("Could not find a suitable goal for R" + (cardY+1) + "xC" + (cardX+1) + " after " + attempt + " iterations");
 					$("<span>").addClass("goaltext").text("[ERROR]").appendTo(this.board[cardY][cardX].cell); break;
 				}
 			}

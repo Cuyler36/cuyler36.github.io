@@ -3,26 +3,26 @@ layout: page
 ---
 
 <style>
-table#cmdtable {
+table.commandtable {
 	background-color: #fff;
 	overflow-x: hidden;
 	width: 100%;
 	display: table;
 }
 
-table#cmdtable th {
+table.commandtable th {
 	background-color: #eee;
 	display: block;
 	width: 100%;
 }
 
-table#cmdtable tr, td {
+table.commandtable tr, td {
 	display: block;
 	float: left;
 	width: 100%;
 }
 
-table#cmdtable tbody {
+table.commandtable tbody {
 	width: 100%;
 }
 
@@ -38,7 +38,7 @@ This page contains a list of all tags with a description and argument list for e
 <!-- Html Elements for Search -->
 <input type="text" id="search-input" placeholder="Search..." onkeyup="search()" class="search-bar">
 <br>
-<table name="end" class="commandtable" id="cmdtable">
+<table name="end" class="commandtable">
 	<tbody>
 		<tr>
 			<th>
@@ -50,7 +50,7 @@ This page contains a list of all tags with a description and argument list for e
 		</tr>
 	</tbody>
 </table>
-<table name="veq" class="commandtable" id="cmdtable">
+<table name="veq" class="commandtable">
 	<tbody>
 		<tr>
 			<th>VEQ <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Version Equals</h3></th>
@@ -61,7 +61,7 @@ This page contains a list of all tags with a description and argument list for e
 		</tr>
 	</tbody>
 </table>
-<table name="vne" class="commandtable" id="cmdtable">
+<table name="vne" class="commandtable">
 	<tbody>
 		<tr>
 			<th>VNE <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Version Not Equal</h3></th>
@@ -72,7 +72,7 @@ This page contains a list of all tags with a description and argument list for e
 		</tr>
 	</tbody>
 </table>
-<table name="gid" class="commandtable" id="cmdtable">
+<table name="gid" class="commandtable">
 	<tbody>
 		<tr>
 			<th>GID <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Game ID</h3></th>
@@ -83,7 +83,7 @@ This page contains a list of all tags with a description and argument list for e
 		</tr>
 	</tbody>
 </table>
-<table name="gnm" class="commandtable" id="cmdtable">
+<table name="gnm" class="commandtable">
 	<tbody>
 		<tr>
 			<th>GNM <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Game Name</h3></th>
@@ -94,7 +94,7 @@ This page contains a list of all tags with a description and argument list for e
 		</tr>
 	</tbody>
 </table>
-<table name="cpn" class="commandtable" id="cmdtable">
+<table name="cpn" class="commandtable">
 	<tbody>
 		<tr>
 			<th>CPN <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Controller Pack Name</h3></th>
@@ -105,7 +105,7 @@ This page contains a list of all tags with a description and argument list for e
 		</tr>
 	</tbody>
 </table>
-<table name="ofs" class="commandtable" id="cmdtable">
+<table name="ofs" class="commandtable">
 	<tbody>
 		<tr>
 			<th>OFS <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Offset</h3></th>
@@ -116,7 +116,7 @@ This page contains a list of all tags with a description and argument list for e
 		</tr>
 	</tbody>
 </table>
-<table name="hsc" class="commandtable" id="cmdtable">
+<table name="hsc" class="commandtable">
 	<tbody>
 		<tr>
 			<th>HSC <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">High Scores</h3></th>
@@ -128,7 +128,7 @@ This page contains a list of all tags with a description and argument list for e
 		</tr>
 	</tbody>
 </table>
-<table name="gno" class="commandtable" id="cmdtable">
+<table name="gno" class="commandtable">
 	<tbody>
 		<tr>
 			<th>GNO <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Game Number</h3></th>
@@ -139,7 +139,7 @@ This page contains a list of all tags with a description and argument list for e
 		</tr>
 	</tbody>
 </table>
-<table name="bbr" class="commandtable" id="cmdtable">
+<table name="bbr" class="commandtable">
 	<tbody>
 		<tr>
 			<th>BBR <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Battery Backup</h3></th>
@@ -151,7 +151,7 @@ This page contains a list of all tags with a description and argument list for e
 		</tr>
 	</tbody>
 </table>
-<table name="qds" class="commandtable" id="cmdtable">
+<table name="qds" class="commandtable">
 	<tbody>
 		<tr>
 			<th>QDS <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Quick Disk Save</h3></th>
@@ -164,7 +164,7 @@ This page contains a list of all tags with a description and argument list for e
 		</tr>
 	</tbody>
 </table>
-<table name="spe" class="commandtable" id="cmdtable">
+<table name="spe" class="commandtable">
 	<tbody>
 		<tr>
 			<th>SPE <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Special</h3></th>
@@ -174,7 +174,7 @@ This page contains a list of all tags with a description and argument list for e
 		</tr>
 	</tbody>
 </table>
-<table name="tcs" class="commandtable" id="cmdtable">
+<table name="tcs" class="commandtable">
 	<tbody>
 		<tr>
 			<th>TCS <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Tags Checksum</h3></th>
@@ -185,7 +185,7 @@ This page contains a list of all tags with a description and argument list for e
 		</tr>
 	</tbody>
 </table>
-<table name="ics" class="commandtable" id="cmdtable">
+<table name="ics" class="commandtable">
 	<tbody>
 		<tr>
 			<th>ICS <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Image Checksum</h3></th>
@@ -196,7 +196,7 @@ This page contains a list of all tags with a description and argument list for e
 		</tr>
 	</tbody>
 </table>
-<table name="esz" class="commandtable" id="cmdtable">
+<table name="esz" class="commandtable">
 	<tbody>
 		<tr>
 			<th>ESZ <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Expanded Size</h3></th>
@@ -207,7 +207,7 @@ This page contains a list of all tags with a description and argument list for e
 		</tr>
 	</tbody>
 </table>
-<table name="rom" class="commandtable" id="cmdtable">
+<table name="rom" class="commandtable">
 	<tbody>
 		<tr>
 			<th>ROM <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">ROM Data Reference</h3></th>
@@ -218,7 +218,7 @@ This page contains a list of all tags with a description and argument list for e
 		</tr>
 	</tbody>
 </table>
-<table name="mov" class="commandtable" id="cmdtable">
+<table name="mov" class="commandtable">
 	<tbody>
 		<tr>
 			<th>MOV <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Move Data (Block Transfer)</h3></th>
@@ -231,7 +231,7 @@ This page contains a list of all tags with a description and argument list for e
 		</tr>
 	</tbody>
 </table>
-<table name="nhd" class="commandtable" id="cmdtable">
+<table name="nhd" class="commandtable">
 	<tbody>
 		<tr>
 			<th>NHD <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">NES Header Data</h3></th>
@@ -242,7 +242,7 @@ This page contains a list of all tags with a description and argument list for e
 		</tr>
 	</tbody>
 </table>
-<table name="dif" class="commandtable" id="cmdtable">
+<table name="dif" class="commandtable">
 	<tbody>
 		<tr>
 			<th>DIF <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Difference</h3></th>
@@ -256,7 +256,7 @@ This page contains a list of all tags with a description and argument list for e
 		</tr>
 	</tbody>
 </table>
-<table name="pat" class="commandtable" id="cmdtable">
+<table name="pat" class="commandtable">
 	<tbody>
 		<tr>
 			<th>PAT <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Patch</h3></th>
@@ -281,7 +281,7 @@ This page contains a list of all tags with a description and argument list for e
 		</tr>
 	</tbody>
 </table>
-<table name="pad" class="commandtable" id="cmdtable">
+<table name="pad" class="commandtable">
 	<tbody>
 		<tr>
 			<th>PAD <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Padding</h3></th>
@@ -294,7 +294,7 @@ This page contains a list of all tags with a description and argument list for e
 </table>
 
 <h2>Unused Tags</h2>
-<table name="fil" class="commandtable" id="cmdtable">
+<table name="fil" class="commandtable">
 	<tbody>
 		<tr>
 			<th>FIL <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">WRAM Initialization Fill Data</h3></th>
@@ -305,7 +305,7 @@ This page contains a list of all tags with a description and argument list for e
 		</tr>
 	</tbody>
 </table>
-<table name="isz" class="commandtable" id="cmdtable">
+<table name="isz" class="commandtable">
 	<tbody>
 		<tr>
 			<th>ISZ <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Image Size</h3></th>
@@ -316,7 +316,7 @@ This page contains a list of all tags with a description and argument list for e
 		</tr>
 	</tbody>
 </table>
-<table name="ifm" class="commandtable" id="cmdtable">
+<table name="ifm" class="commandtable">
 	<tbody>
 		<tr>
 			<th>IFM <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Image Format</h3></th>
@@ -327,7 +327,7 @@ This page contains a list of all tags with a description and argument list for e
 		</tr>
 	</tbody>
 </table>
-<table name="rem" class="commandtable" id="cmdtable">
+<table name="rem" class="commandtable">
 	<tbody>
 		<tr>
 			<th>REM <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Remarks</h3></th>
@@ -338,7 +338,7 @@ This page contains a list of all tags with a description and argument list for e
 		</tr>
 	</tbody>
 </table>
-<table name="apl" class="commandtable" id="cmdtable">
+<table name="apl" class="commandtable">
 	<tbody>
 		<tr>
 			<th>APL <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Application Info</h3></th>
@@ -349,7 +349,7 @@ This page contains a list of all tags with a description and argument list for e
 		</tr>
 	</tbody>
 </table>
-<table name="fgn" class="commandtable" id="cmdtable">
+<table name="fgn" class="commandtable">
 	<tbody>
 		<tr>
 			<th>FGN <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Full Game Name</h3></th>

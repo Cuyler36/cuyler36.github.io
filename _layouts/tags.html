@@ -11,13 +11,6 @@ layout: page
 {% assign rawtags = rawtags | append:post_tags %}
 {% endfor %}
 
-<!-- cycles through portfolio collection to get tags -->
-{% assign portfolio =  site.portfolio | map: 'tags' | join: ','  | split: ',' | uniq %}
-{% for tag in portfolio %}
-{% assign portfolio_tags = tag | join:'|' | append:'|' %}
-{% assign rawtags = rawtags | append:portfolio_tags %}
-{% endfor %}
-
 <!-- cycles through pages to get tags -->
 {% for page in site.pages %}
 {% assign page_tags = page.tags | join:'|'  %}
@@ -70,22 +63,6 @@ layout: page
                 </h5>
                 {% endif %} 
             {% endfor %} 
-            
-            <!-- Portfolio -->
-            {% for note in site.portfolio %} 
-                {% if note.tags contains tag %}
-                <h5 class="tag-title">
-                    <a href="{{ site.baseurl }}{{ note.url }}">
-                        <i class="fa fa-file-o" aria-hidden="true"></i>
-                        {{ note.title }}
-                    </a>
-                
-                    <div class="meta">
-                        {{ note.date | date: "%B %-d, %Y" }}
-                    </div>
-                </h5>
-                {% endif %} 
-            {% endfor %}
 
         </div>
         {% endfor %}
