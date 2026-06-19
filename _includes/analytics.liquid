@@ -1,0 +1,10 @@
+{% assign analytics = site.analytics %}
+{% if jekyll.environment == "production" and analytics %}
+  {% if analytics.provider == "plausible" and analytics.plausible_domain %}
+    {% assign plausible_script = analytics.plausible_script | default: "https://plausible.io/js/script.js" %}
+    <script defer data-domain="{{ analytics.plausible_domain | escape }}" src="{{ plausible_script | escape }}"></script>
+  {% elsif analytics.provider == "fathom" and analytics.fathom_site %}
+    {% assign fathom_script = analytics.fathom_script | default: "https://cdn.usefathom.com/script.js" %}
+    <script defer data-site="{{ analytics.fathom_site | escape }}" src="{{ fathom_script | escape }}"></script>
+  {% endif %}
+{% endif %}

@@ -16,6 +16,10 @@ header_feature_image_responsive: false
 footer_text: >
   Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
 
+analytics:
+  provider: plausible
+  plausible_domain: cuyler36.github.io
+
 post_navigation: true
 katex: false
 color_theme: auto

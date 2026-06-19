@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.5.1
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  {% capture _head %}{% include default/head.liquid %}{% endcapture %}
+  {% capture _analytics %}{% include analytics.liquid %}{% endcapture %}
+  {% capture _analytics_head %}{{ _analytics }}</head>{% endcapture %}
+  {{ _head | replace: "</head>", _analytics_head | split: " " | join: " "}}
+  <body>
+    {% capture _navbar %}{% include default/navbar.liquid %}{% endcapture %}
+    {{ _navbar | split: " " | join: " "}}
+    <main class="content">
+      {{ content }}
+    </main>
+    {% capture _footer %}{% include default/footer.liquid %}{% endcapture %}
+    {{ _footer | split: " " | join: " "}}
+  </body>
+</html>
