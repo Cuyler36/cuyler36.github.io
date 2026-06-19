@@ -186,6 +186,15 @@
   max-width: 280px;
 }
 
+.passwordgen-tool label[for="decodeInput"] {
+  display: block;
+  margin-bottom: 0.35rem;
+}
+
+.passwordgen-tool #decodeInput {
+  display: block;
+}
+
 .passwordgen-tool .help-text {
   color: var(--meta);
   font-size: 0.9rem;
