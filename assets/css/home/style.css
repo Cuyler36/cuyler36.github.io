@@ -103,6 +103,12 @@
   color: #fff;
 }
 
+.hub-button-icon {
+  display: inline-flex;
+  gap: 0.45rem;
+  align-items: center;
+}
+
 .hub-section {
   display: grid;
   gap: 1rem;

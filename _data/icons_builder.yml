@@ -5,3 +5,6 @@ x:
   icon: "fab fa-x-twitter"
 youtube:
   pre: ""
+discord:
+  pre: "https://discord.gg/"
+  icon: "fab fa-discord"
