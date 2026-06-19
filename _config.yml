@@ -21,10 +21,6 @@ katex: false
 color_theme: auto
 excerpt: true
 
-# PAGINATION (keep /page2/ URLs from the old site)
-paginate: 5
-paginate_path: "/page:num/"
-
 # BUILD SETTINGS
 theme: type-on-strap
 
@@ -33,7 +29,6 @@ sass:
   quiet_deps: true
 
 plugins:
-  - jekyll-paginate
   - jekyll-seo-tag
   - jekyll-feed
 

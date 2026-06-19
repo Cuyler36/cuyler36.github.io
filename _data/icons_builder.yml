@@ -1,0 +1,7 @@
+github:
+  pre: "https://github.com/"
+x:
+  pre: "https://x.com/"
+  icon: "fab fa-x-twitter"
+youtube:
+  pre: ""

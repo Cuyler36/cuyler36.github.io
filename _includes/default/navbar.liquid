@@ -1,0 +1,20 @@
+<header class="site-header">
+  <div class="branding">
+    {% if site.avatar %}
+    <a href="{{ '/' | relative_url }}">
+      <img alt="logo img" class="avatar" src="{{ site.avatar | relative_url }}" loading="lazy"/>
+    </a>
+    {% endif %}
+    <a class="site-title" aria-label="Home" href="{{ '/' | relative_url }}">
+      Home
+    </a>
+  </div>
+
+  {% if site.color_theme == 'auto' %}
+  <nav class="clear">
+    <ul class="hide">
+      <li><a id="theme-toggle" title="{{ site.data.language.str_dark | default: 'Toggle theme' }}" aria-label="{{ site.data.language.str_dark | default: 'Toggle theme' }}" onclick="themeToggle()"></a></li>
+    </ul>
+  </nav>
+  {% endif %}
+</header>

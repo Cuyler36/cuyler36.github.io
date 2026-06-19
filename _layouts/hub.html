@@ -1,0 +1,88 @@
+---
+layout: default
+---
+
+<link rel="stylesheet" href="{{ '/assets/css/home/style.css' | relative_url }}">
+
+<div class="site-hub">
+  <section class="hub-hero">
+    <div class="hub-hero-copy">
+      <p class="hub-eyebrow">Animal Crossing reverse engineering and modding</p>
+      <h3>
+        Projects, tools, and notes for digging into Animal Crossing.
+      </h3>
+      <div class="hub-actions">
+        <a class="hub-button primary" href="{{ '/acdx/' | relative_url }}">Patch Animal Crossing Deluxe</a>
+        <a class="hub-button" href="{{ '/blog/' | relative_url }}">Read the blog</a>
+      </div>
+    </div>
+    <a class="hub-deluxe-logo-link" href="{{ '/acdx/' | relative_url }}" aria-label="Open the Animal Crossing Deluxe patcher">
+      <img class="hub-deluxe-logo" src="{{ '/assets/img/acdx/logo.png' | relative_url }}" alt="Animal Crossing Deluxe logo">
+    </a>
+  </section>
+
+  <section class="hub-section hub-section-featured" aria-labelledby="featured-project-heading">
+    <div class="hub-section-heading">
+      <p class="hub-eyebrow">Featured</p>
+      <h2 id="featured-project-heading">Animal Crossing Deluxe</h2>
+    </div>
+    <a class="hub-feature-card" href="{{ '/acdx/' | relative_url }}">
+      <div>
+        <h3>Build a patched Deluxe image in your browser</h3>
+        <p>
+          Provide your own clean Animal Crossing ISO or NKit image and the page will validate it,
+          select the matching xdelta patch, and build the Deluxe image locally.
+        </p>
+      </div>
+    </a>
+  </section>
+
+  <section class="hub-section" aria-labelledby="tools-heading">
+    <div class="hub-section-heading">
+      <p class="hub-eyebrow">Tools</p>
+      <h2 id="tools-heading">Browser tools and references</h2>
+    </div>
+    <div class="hub-card-grid">
+      <a class="hub-card" href="{{ '/passwordgen/' | relative_url }}">
+        <h3>Password Generator</h3>
+        <p>Generate and decode secret passwords for Animal Crossing, Doubutsu no Mori+, and Doubutsu no Mori e+.</p>
+      </a>
+      <a class="hub-card" href="{{ '/nestags/' | relative_url }}">
+        <h3>NES Tags</h3>
+        <p>Reference emulator command tags used by Animal Crossing NES ROM metadata.</p>
+      </a>
+      <a class="hub-card" href="{{ '/bingo/' | relative_url }}">
+        <h3>e+ Bingo</h3>
+        <p>Create seeded Animal Forest e+ bingo cards for races and routing practice.</p>
+      </a>
+      <!-- <a class="hub-card" href="{{ '/objcenter/' | relative_url }}">
+        <h3>Object Delivery Center</h3>
+        <p>Open the Object Delivery Center conversion tool for Animal Forest e+.</p>
+      </a> -->
+    </div>
+  </section>
+
+  <section class="hub-section" aria-labelledby="writing-heading">
+    <div class="hub-section-heading">
+      <p class="hub-eyebrow">Writing</p>
+      <h2 id="writing-heading">Technical write-ups</h2>
+    </div>
+    <div class="hub-post-list">
+      {% for post in site.posts limit: 2 %}
+      <a class="hub-post-card" href="{{ post.url | relative_url }}">
+        {% if post.thumbnail %}
+        <span class="hub-post-image">
+          <img src="{{ post.thumbnail | relative_url }}" alt="{{ post.title }}">
+        </span>
+        {% endif %}
+        <span class="hub-post-copy">
+          <span class="hub-post-date">{{ post.date | date: "%B %-d, %Y" }}</span>
+          <h3>{{ post.title }}</h3>
+          <p>{{ post.excerpt | strip_html | escape }}</p>
+        </span>
+      </a>
+      {% endfor %}
+    </div>
+    <a class="hub-text-link" href="{{ '/blog/' | relative_url }}">View all posts</a>
+  </section>
+</div>
