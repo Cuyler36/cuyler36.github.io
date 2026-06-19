@@ -1,4 +1,6 @@
 .site-hub {
+  clear: both;
+  width: 100%;
   max-width: 1080px;
   margin: 0 auto;
   color: var(--text);
@@ -10,17 +12,32 @@
 }
 
 .hub-hero {
+  clear: both;
+  width: 100%;
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(220px, 0.8fr);
+  grid-template-columns: minmax(320px, 1.2fr) minmax(240px, 0.8fr);
   gap: 2rem;
   align-items: center;
   padding: 2rem 0 2.5rem;
+}
+
+.hub-hero-copy,
+.hub-deluxe-logo-link,
+.hub-section,
+.hub-feature-card,
+.hub-card,
+.hub-post-card {
+  min-width: 0;
 }
 
 .hub-hero h1 {
   margin-top: 0;
   font-size: clamp(2rem, 5vw, 3.5rem);
   line-height: 1.05;
+}
+
+.hub-hero h3 {
+  margin-top: 0;
 }
 
 .hub-hero p {
@@ -32,6 +49,7 @@
   width: min(100%, 420px);
   height: auto;
   margin: 0 auto;
+  padding: 0;
 }
 
 .hub-deluxe-logo-link {
@@ -215,12 +233,18 @@
   transform: scale(1.05);
 }
 
-@media (max-width: 760px) {
+@media (max-width: 900px) {
   .hub-hero,
   .hub-post-card {
     grid-template-columns: 1fr;
   }
 
+  .hub-deluxe-logo-link {
+    grid-row: 1;
+  }
+}
+
+@media (max-width: 760px) {
   .blog-post-image {
     height: 150px;
   }
