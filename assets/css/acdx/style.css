@@ -1,4 +1,5 @@
 .acdx-tool {
+  width: 100%;
   max-width: 980px;
   margin: 0 auto;
   color: var(--text);
@@ -26,6 +27,7 @@
 }
 
 .acdx-panel {
+  min-width: 0;
   border: 1px solid var(--border);
   border-radius: 8px;
   background: var(--background);
@@ -75,6 +77,8 @@
 
 .acdx-drop-zone {
   display: grid;
+  width: 100%;
+  max-width: 100%;
   min-width: 0;
   gap: 0.5rem;
   border: 2px dashed var(--border);
@@ -91,7 +95,9 @@
 
 .acdx-drop-zone .acdx-muted {
   display: block;
-  overflow-wrap: anywhere;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  white-space: normal;
 }
 
 .acdx-drop-zone.drag-over {
@@ -103,7 +109,9 @@
 }
 
 .acdx-drop-zone input {
+  width: 100%;
   max-width: 100%;
+  min-width: 0;
 }
 
 .acdx-drop-zone input::file-selector-button,
