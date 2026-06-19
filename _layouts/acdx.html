@@ -5,6 +5,10 @@ layout: page
 <link rel="stylesheet" href="{{ '/assets/css/acdx/style.css' | relative_url }}">
 
 <div class="acdx-tool" data-metadata-url="{{ '/assets/data/acdx/releases.json' | relative_url }}">
+  {% if page.banner %}
+  <img class="acdx-banner" src="{{ page.banner | relative_url }}" alt="{{ page.title }} logo">
+  {% endif %}
+
   <section class="acdx-intro">
     <p>
       Build an <strong>Animal Crossing Deluxe</strong> disc image from your own clean Animal Crossing source image.

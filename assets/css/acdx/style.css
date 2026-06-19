@@ -4,6 +4,13 @@
   color: var(--text);
 }
 
+.acdx-banner {
+  display: block;
+  width: min(100%, 512px);
+  height: auto;
+  margin: 0 auto 2rem;
+}
+
 .acdx-intro {
   margin-bottom: 1.5rem;
 }
