@@ -1,8 +1,8 @@
 # SITE CONFIGURATION
 baseurl: ""
 url: "https://cuyler36.github.io"
-title: Cuyler's blog
-description: "Cuyler's blog"
+title: Cuyler's mods
+description: "Cuyler's mods"
 
 # THEME CONFIGURATION (Type on Strap 2.x)
 avatar: assets/img/C.png
