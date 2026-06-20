@@ -211,6 +211,22 @@
     return state.metadata.releases.find(release => release.version === version)
   }
 
+  function getOrderedReleases () {
+    return (state.metadata.releases || [])
+      .map((release, index) => ({ release, index }))
+      .sort((a, b) => {
+        const aOrder = Number(a.release.orderId)
+        const bOrder = Number(b.release.orderId)
+        const aHasOrder = Number.isFinite(aOrder)
+        const bHasOrder = Number.isFinite(bOrder)
+
+        if (aHasOrder && bHasOrder && aOrder !== bOrder) return bOrder - aOrder
+        if (aHasOrder !== bHasOrder) return aHasOrder ? -1 : 1
+        return a.index - b.index
+      })
+      .map(entry => entry.release)
+  }
+
   function getPatchForMatch () {
     if (!state.selectedRelease || !state.matchedSourceKey) return null
     return state.selectedRelease.patches[state.matchedSourceKey] || null
@@ -222,7 +238,7 @@
 
   function renderVersionOptions () {
     els.version.innerHTML = ''
-    state.metadata.releases.forEach(release => {
+    getOrderedReleases().forEach(release => {
       const option = document.createElement('option')
       option.value = release.version
       option.textContent = release.label || release.version
@@ -230,7 +246,7 @@
     })
 
     const latest = getReleaseByVersion(state.metadata.latest)
-    state.selectedRelease = latest || state.metadata.releases[0] || null
+    state.selectedRelease = latest || getOrderedReleases()[0] || null
     if (state.selectedRelease) els.version.value = state.selectedRelease.version
   }
 
@@ -267,7 +283,7 @@
   }
 
   function renderChangelog () {
-    const releases = state.metadata.releases || []
+    const releases = getOrderedReleases()
     els.changelog.innerHTML = releases.map(release => `
       <article class="acdx-card">
         <h3>${escapeHtml(release.label || release.version)}</h3>
