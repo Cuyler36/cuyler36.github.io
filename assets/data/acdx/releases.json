@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "latest": "0.38.2",
+  "latest": "0.38.3",
   "sources": {
     "ac-us-iso": {
       "label": "Animal Crossing US ISO",
@@ -129,6 +129,50 @@
           "outputName": "ACDX-0.38.2.iso",
           "outputSize": 34385920,
           "outputSha1": "AC82073BA6228FF7CAC4562042447A4B2EEAAE16"
+        }
+      }
+    },
+    {
+      "version": "0.38.3",
+      "orderId": 383,
+      "date": "2026-06-22",
+      "label": "AC Deluxe 0.38.3",
+      "summary": "Patch 38.3 makes fruit baskets valid for fruit villager quests, fixes a softlock when changing shirts, and more!",
+      "changelog": [
+        "Clovers are no longer counted as weeds when doing town assessment.",
+        "Updated Farley's shrine spawn positioning.",
+        "Fruit baskets are valid for fruit villager quests.",
+        "Re-planting grown flowers in a hole is more natural looking.",
+        "Chip will now give players a free fishing rod if they do not have one during Fishing Tournies.",
+        "Fixed softlock when pressing B while changing from a regular shirt to a custom design.",
+        "Fixed some player tools which were marked invalid for Player-to-Player Nook codes.",
+        "Fixed some paintings not being reorderable.",
+        "Fixed Farley's model transparency."
+      ],
+      "patches": {
+        "ac-us-iso": {
+          "url": "/assets/patches/acdx/0.38.3/ac-us-iso.xdelta",
+          "outputName": "ACDX-0.38.3.iso",
+          "outputSize": 34406400,
+          "outputSha1": "EAD10EE314DC3F5F05B654E1A254FB2FFDCC01BC"
+        },
+        "ac-aus-iso": {
+          "url": "/assets/patches/acdx/0.38.3/ac-aus-iso.xdelta",
+          "outputName": "ACDX-0.38.3.iso",
+          "outputSize": 34406400,
+          "outputSha1": "EAD10EE314DC3F5F05B654E1A254FB2FFDCC01BC"
+        },
+        "ac-pal-iso": {
+          "url": "/assets/patches/acdx/0.38.3/ac-pal-iso.xdelta",
+          "outputName": "ACDX-0.38.3.iso",
+          "outputSize": 34406400,
+          "outputSha1": "EAD10EE314DC3F5F05B654E1A254FB2FFDCC01BC"
+        },
+        "ac-us-nkit-iso": {
+          "url": "/assets/patches/acdx/0.38.3/ac-us-nkit-iso.xdelta",
+          "outputName": "ACDX-0.38.3.iso",
+          "outputSize": 34406400,
+          "outputSha1": "EAD10EE314DC3F5F05B654E1A254FB2FFDCC01BC"
         }
       }
     }
