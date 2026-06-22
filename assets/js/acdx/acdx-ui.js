@@ -1,13 +1,12 @@
 (function () {
   'use strict'
 
-  const CHUNK_SIZE = 4 * 1024 * 1024
-
   const root = document.querySelector('.acdx-tool')
   if (!root) return
 
   const scriptUrl = document.currentScript.src
   const workerUrl = scriptUrl.replace(/acdx-ui\.js(?:\?.*)?$/, 'acdx-worker.js')
+  const hashWorkerUrl = scriptUrl.replace(/acdx-ui\.js(?:\?.*)?$/, 'acdx-hash-worker.js')
   const metadataUrl = root.dataset.metadataUrl
 
   const els = {
@@ -31,128 +30,10 @@
     matchedSourceKey: null,
     matchedSource: null,
     currentDownloadUrl: null,
-    worker: null
-  }
-
-  class Sha1 {
-    constructor () {
-      this.h0 = 0x67452301
-      this.h1 = 0xefcdab89
-      this.h2 = 0x98badcfe
-      this.h3 = 0x10325476
-      this.h4 = 0xc3d2e1f0
-      this.block = new Uint8Array(64)
-      this.blockLength = 0
-      this.bytesHashed = 0
-      this.finished = false
-      this.words = new Uint32Array(80)
-    }
-
-    update (data) {
-      if (this.finished) throw new Error('SHA-1 digest already finished')
-
-      let position = 0
-      this.bytesHashed += data.length
-
-      if (this.blockLength > 0) {
-        while (this.blockLength < 64 && position < data.length) {
-          this.block[this.blockLength++] = data[position++]
-        }
-        if (this.blockLength === 64) {
-          this.processBlock(this.block, 0)
-          this.blockLength = 0
-        }
-      }
-
-      while (position + 64 <= data.length) {
-        this.processBlock(data, position)
-        position += 64
-      }
-
-      while (position < data.length) {
-        this.block[this.blockLength++] = data[position++]
-      }
-    }
-
-    digestHex () {
-      const bitsHigh = Math.floor(this.bytesHashed / 0x20000000)
-      const bitsLow = (this.bytesHashed << 3) >>> 0
-      const padLength = this.blockLength < 56 ? 56 - this.blockLength : 120 - this.blockLength
-      const padding = new Uint8Array(padLength + 8)
-      padding[0] = 0x80
-      writeUint32(padding, padLength, bitsHigh)
-      writeUint32(padding, padLength + 4, bitsLow)
-      this.update(padding)
-      this.finished = true
-
-      return [this.h0, this.h1, this.h2, this.h3, this.h4]
-        .map(value => value.toString(16).padStart(8, '0'))
-        .join('')
-    }
-
-    processBlock (data, offset) {
-      const words = this.words
-      for (let i = 0; i < 16; i++) {
-        words[i] = (
-          (data[offset++] << 24) |
-          (data[offset++] << 16) |
-          (data[offset++] << 8) |
-          data[offset++]
-        ) >>> 0
-      }
-
-      for (let i = 16; i < 80; i++) {
-        words[i] = rotateLeft(words[i - 3] ^ words[i - 8] ^ words[i - 14] ^ words[i - 16], 1)
-      }
-
-      let a = this.h0
-      let b = this.h1
-      let c = this.h2
-      let d = this.h3
-      let e = this.h4
-
-      for (let i = 0; i < 80; i++) {
-        let f
-        let k
-        if (i < 20) {
-          f = (b & c) | ((~b) & d)
-          k = 0x5a827999
-        } else if (i < 40) {
-          f = b ^ c ^ d
-          k = 0x6ed9eba1
-        } else if (i < 60) {
-          f = (b & c) | (b & d) | (c & d)
-          k = 0x8f1bbcdc
-        } else {
-          f = b ^ c ^ d
-          k = 0xca62c1d6
-        }
-
-        const temp = (rotateLeft(a, 5) + f + e + k + words[i]) >>> 0
-        e = d
-        d = c
-        c = rotateLeft(b, 30)
-        b = a
-        a = temp
-      }
-
-      this.h0 = (this.h0 + a) >>> 0
-      this.h1 = (this.h1 + b) >>> 0
-      this.h2 = (this.h2 + c) >>> 0
-      this.h3 = (this.h3 + d) >>> 0
-      this.h4 = (this.h4 + e) >>> 0
-    }
-  }
-
-  function rotateLeft (value, bits) {
-    return ((value << bits) | (value >>> (32 - bits))) >>> 0
-  }
-
-  function writeUint32 (target, offset, value) {
-    target[offset] = (value >>> 24) & 0xff
-    target[offset + 1] = (value >>> 16) & 0xff
-    target[offset + 2] = (value >>> 8) & 0xff
-    target[offset + 3] = value & 0xff
+    worker: null,
+    hashWorker: null,
+    hashRequestId: 0,
+    hashReject: null
   }
 
   function escapeHtml (value) {
@@ -205,6 +86,20 @@
     state.currentDownloadUrl = null
     els.download.classList.add('hidden')
     els.download.removeAttribute('href')
+  }
+
+  function cancelHashWorker () {
+    state.hashRequestId++
+    if (state.hashWorker) {
+      state.hashWorker.terminate()
+      state.hashWorker = null
+    }
+    if (state.hashReject) {
+      const error = new Error('Hash cancelled.')
+      error.name = 'AbortError'
+      state.hashReject(error)
+      state.hashReject = null
+    }
   }
 
   function getReleaseByVersion (version) {
@@ -296,19 +191,53 @@
   }
 
   async function hashFileSha1 (file) {
-    const sha1 = new Sha1()
-    let offset = 0
-    while (offset < file.size) {
-      const chunk = new Uint8Array(await file.slice(offset, offset + CHUNK_SIZE).arrayBuffer())
-      sha1.update(chunk)
-      offset += chunk.length
-      setProgress((offset / file.size) * 100, `Hashing source image... ${Math.round((offset / file.size) * 100)}%`)
-      await new Promise(resolve => setTimeout(resolve, 0))
-    }
-    return sha1.digestHex()
+    if (state.hashWorker) state.hashWorker.terminate()
+
+    const requestId = ++state.hashRequestId
+    state.hashWorker = new Worker(hashWorkerUrl)
+
+    return new Promise((resolve, reject) => {
+      state.hashReject = reject
+
+      state.hashWorker.onmessage = event => {
+        const message = event.data
+        if (!message || message.requestId !== requestId) return
+
+        if (message.type === 'progress') {
+          setProgress(message.percent, message.message)
+        } else if (message.type === 'complete') {
+          state.hashWorker.terminate()
+          state.hashWorker = null
+          state.hashReject = null
+          resolve(message.sha1)
+        } else if (message.type === 'error') {
+          state.hashWorker.terminate()
+          state.hashWorker = null
+          state.hashReject = null
+          reject(new Error(message.message))
+        }
+      }
+
+      state.hashWorker.onerror = event => {
+        if (state.hashWorker) {
+          state.hashWorker.terminate()
+          state.hashWorker = null
+        }
+        state.hashReject = null
+        reject(new Error(event.message || 'Hash worker failed.'))
+      }
+
+      state.hashWorker.postMessage({
+        type: 'hash',
+        requestId,
+        file,
+        deviceMemory: Number(navigator.deviceMemory) || null
+      })
+    })
   }
 
   async function validateSelectedFile (file) {
+    cancelHashWorker()
     resetDownload()
     state.selectedFile = file
     state.matchedSourceKey = null
@@ -338,7 +267,13 @@
       return
     }
 
-    const sha1 = await hashFileSha1(file)
+    let sha1
+    try {
+      sha1 = await hashFileSha1(file)
+    } catch (error) {
+      if (error.name === 'AbortError') return
+      throw error
+    }
     setProgress(null)
 
     const matched = hashableMatches.find(([, source]) => normalizeHash(source.sha1) === sha1)
