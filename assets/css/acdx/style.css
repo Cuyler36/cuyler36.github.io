@@ -178,6 +178,25 @@
   padding: 0.45rem 0.85rem;
 }
 
+.acdx-github-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  margin-left: auto;
+  color: var(--text);
+  background: var(--code-background);
+}
+
+.acdx-github-link:hover,
+.acdx-github-link:focus {
+  border-color: var(--link);
+  color: var(--link);
+}
+
 .acdx-source-list,
 .acdx-changelog {
   display: grid;
