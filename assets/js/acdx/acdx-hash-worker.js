@@ -3,6 +3,7 @@
 
   const CHUNK_SIZE = 16 * 1024 * 1024
   const BYTES_PER_GIB = 1024 * 1024 * 1024
+  const MAX_UNKNOWN_MEMORY_NATIVE_HASH_SIZE = 256 * 1024 * 1024
   const MAX_NATIVE_HASH_MEMORY_FRACTION = 0.25
 
   class Sha1 {
@@ -164,7 +165,7 @@
 
   function canUseNativeHash (file, deviceMemory) {
     if (typeof crypto === 'undefined' || !crypto.subtle) return false
-    if (!Number.isFinite(deviceMemory) || deviceMemory <= 0) return true
+    if (!Number.isFinite(deviceMemory) || deviceMemory <= 0) return file.size <= MAX_UNKNOWN_MEMORY_NATIVE_HASH_SIZE
 
     const availableBytes = deviceMemory * BYTES_PER_GIB
     return file.size <= availableBytes * MAX_NATIVE_HASH_MEMORY_FRACTION
