@@ -9,7 +9,7 @@
       "size": 1459978240,
       "sha1": "2D2B1FA3883F49AF779CE9CA133DB3BE17BE8F32",
       "sha256": "CA870A9C11AE26CD4D3FB94BEFD7ECBD075C36244589061D22E3DDC4552DC379",
-      "notes": "Fill in the exact clean source image size and hash before publishing patches."
+      "notes": "US version of Animal Crossing."
     },
     "ac-aus-iso": {
       "label": "Animal Crossing Australia ISO",
@@ -18,7 +18,7 @@
       "size": 1459978240,
       "sha1": "9C50EB2182812E2DADFD47309764E59AAA76D485",
       "sha256": "52FEA416364D22869D27683990BE2307D87ACEE312E4566C16F24838B8600F86",
-      "notes": "Fill in the exact clean source image size and hash before publishing patches."
+      "notes": "Australian version of Animal Crossing."
     },
     "ac-pal-iso": {
       "label": "Animal Crossing PAL ISO",
@@ -27,7 +27,7 @@
       "size": 1459978240,
       "sha1": "E5358089343299DE67CBC87D8868DFE07BAAC44F",
       "sha256": "D2772F13031B283384FF9308E2546C3E0761745088E2EE13EBA9F6F6D7F9D46E",
-      "notes": "Fill in the exact clean source image size and hash before publishing patches."
+      "notes": "PAL version of Animal Crossing."
     },
     "ac-us-nkit-iso": {
       "label": "Animal Crossing US NKit ISO",

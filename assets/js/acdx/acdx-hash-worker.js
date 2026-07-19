@@ -6,6 +6,13 @@
   const MAX_UNKNOWN_MEMORY_NATIVE_HASH_SIZE = 256 * 1024 * 1024
   const MAX_NATIVE_HASH_MEMORY_FRACTION = 0.25
 
+  let wasmLoadError = null
+  try {
+    importScripts('./vendor/hash-wasm-sha1.umd.min.js')
+  } catch (error) {
+    wasmLoadError = error
+  }
+
   class Sha1 {
     constructor () {
       this.h0 = 0x67452301
@@ -171,6 +178,32 @@
     return file.size <= availableBytes * MAX_NATIVE_HASH_MEMORY_FRACTION
   }
 
+  function getWasmSha1Factory () {
+    if (wasmLoadError) throw wasmLoadError
+    const api = self.hashwasm
+    if (!api || typeof api.createSHA1 !== 'function') {
+      throw new Error('hash-wasm SHA-1 module failed to load.')
+    }
+    return api.createSHA1
+  }
+
+  async function hashWithWasm (requestId, file) {
+    const createSHA1 = getWasmSha1Factory()
+    const hasher = await createSHA1()
+    const reader = new FileReaderSync()
+    let offset = 0
+
+    while (offset < file.size) {
+      const end = Math.min(file.size, offset + CHUNK_SIZE)
+      const chunk = new Uint8Array(reader.readAsArrayBuffer(file.slice(offset, end)))
+      hasher.update(chunk)
+      offset = end
+      postProgress(requestId, (offset / file.size) * 100, `Hashing source image... ${Math.round((offset / file.size) * 100)}%`)
+    }
+
+    return hasher.digest('hex')
+  }
+
   function hashWithStreamingFallback (requestId, file) {
     const reader = new FileReaderSync()
     const sha1 = new Sha1()
@@ -196,10 +229,15 @@
         postProgress(requestId, 0, 'Hashing source image with streaming fallback...')
       }
     } else {
-      postProgress(requestId, 0, 'Hashing source image in memory-safe chunks...')
+      postProgress(requestId, 0, 'Hashing source image...')
     }
 
-    return hashWithStreamingFallback(requestId, file)
+    try {
+      return await hashWithWasm(requestId, file)
+    } catch (error) {
+      postProgress(requestId, 0, 'Hashing source image with JS fallback...')
+      return hashWithStreamingFallback(requestId, file)
+    }
   }
 
   self.addEventListener('message', event => {
