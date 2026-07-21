@@ -1,180 +1,241 @@
 {
-  "schemaVersion": 1,
-  "latest": "0.38.3",
-  "sources": {
-    "ac-us-iso": {
-      "label": "Animal Crossing US ISO",
-      "format": "iso",
-      "region": "US",
-      "size": 1459978240,
-      "sha1": "2D2B1FA3883F49AF779CE9CA133DB3BE17BE8F32",
-      "sha256": "CA870A9C11AE26CD4D3FB94BEFD7ECBD075C36244589061D22E3DDC4552DC379",
-      "notes": "US version of Animal Crossing."
-    },
-    "ac-aus-iso": {
-      "label": "Animal Crossing Australia ISO",
-      "format": "iso",
-      "region": "Australia",
-      "size": 1459978240,
-      "sha1": "9C50EB2182812E2DADFD47309764E59AAA76D485",
-      "sha256": "52FEA416364D22869D27683990BE2307D87ACEE312E4566C16F24838B8600F86",
-      "notes": "Australian version of Animal Crossing."
-    },
-    "ac-pal-iso": {
-      "label": "Animal Crossing PAL ISO",
-      "format": "iso",
-      "region": "PAL",
-      "size": 1459978240,
-      "sha1": "E5358089343299DE67CBC87D8868DFE07BAAC44F",
-      "sha256": "D2772F13031B283384FF9308E2546C3E0761745088E2EE13EBA9F6F6D7F9D46E",
-      "notes": "PAL version of Animal Crossing."
-    },
-    "ac-us-nkit-iso": {
-      "label": "Animal Crossing US NKit ISO",
-      "format": "nkit.iso",
-      "region": "US",
-      "size": 27574272,
-      "sha1": "8FB378C9E4D3284FBACABC3DA15FB15C9157CEB7",
-      "sha256": "A08AD2654831AB298071BDCDF727945EFCFDD50D2B0E3512A3D361EE7B18296D",
-      "notes": "NKit images must be patched from an exact source hash; this tool does not normalize NKit to ISO."
-    }
-  },
-  "releases": [
-    {
-      "version": "0.38.1",
-      "orderId": 381,
-      "date": "2026-06-17",
-      "label": "AC Deluxe 0.38.1",
-      "summary": "Patch 38.1 includes new e+ behavior fixes, island crash fixes, golden tool progression fixes, and a save-version upgrade.",
-      "changelog": [
-        "The new e+ fish have their correct sound effects when biting and caught.",
-        "The hercules beetle has its correct sound effect when being scared away.",
-        "The pinball furniture item plays its sound effect from its \"front\" face now, instead of its \"side\" face.",
-        "The TV with VCR now previews its animation in the catalog.",
-        "A crash that could occur when going to the island has been fixed.",
-        "The islander should no longer get stuck indoors indefinitely.",
-        "Receiving a golden watering can before receiving a golden axe will no longer lock the player out of receiving the golden axe as well. Once more, a one-time reset to the golden axe flag will be applied when upgrading to this patch version.",
-        "K.K. live performances have the proper beat tempo after upgrading to the e+ audiorom.",
-        "A bunch of other minor e+ decomp fixes have been added. There are still a lot that need to be brought over.",
-        "Since this version includes a save-version upgrade, back up your save file before launching it!"
-      ],
-      "patches": {
+    "schemaVersion": 1,
+    "latest": "0.38.3",
+    "sources": {
         "ac-us-iso": {
-          "url": "/assets/patches/acdx/0.38.1/ac-us-iso.xdelta",
-          "outputName": "ACDX-0.38.1.iso",
-          "outputSize": 34394112,
-          "outputSha1": "7EE321F0052845B52A9398EA52940736A8EF2C86"
+            "label": "Animal Crossing US ISO",
+            "format": "iso",
+            "region": "US",
+            "size": 1459978240,
+            "sha1": "2D2B1FA3883F49AF779CE9CA133DB3BE17BE8F32",
+            "sha256": "CA870A9C11AE26CD4D3FB94BEFD7ECBD075C36244589061D22E3DDC4552DC379",
+            "notes": "US version of Animal Crossing."
         },
         "ac-aus-iso": {
-          "url": "/assets/patches/acdx/0.38.1/ac-aus-iso.xdelta",
-          "outputName": "ACDX-0.38.1.iso",
-          "outputSize": 34394112,
-          "outputSha1": "7EE321F0052845B52A9398EA52940736A8EF2C86"
+            "label": "Animal Crossing Australia ISO",
+            "format": "iso",
+            "region": "Australia",
+            "size": 1459978240,
+            "sha1": "9C50EB2182812E2DADFD47309764E59AAA76D485",
+            "sha256": "52FEA416364D22869D27683990BE2307D87ACEE312E4566C16F24838B8600F86",
+            "notes": "Australian version of Animal Crossing."
         },
         "ac-pal-iso": {
-          "url": "/assets/patches/acdx/0.38.1/ac-pal-iso.xdelta",
-          "outputName": "ACDX-0.38.1.iso",
-          "outputSize": 34394112,
-          "outputSha1": "7EE321F0052845B52A9398EA52940736A8EF2C86"
+            "label": "Animal Crossing PAL ISO",
+            "format": "iso",
+            "region": "PAL",
+            "size": 1459978240,
+            "sha1": "E5358089343299DE67CBC87D8868DFE07BAAC44F",
+            "sha256": "D2772F13031B283384FF9308E2546C3E0761745088E2EE13EBA9F6F6D7F9D46E",
+            "notes": "PAL version of Animal Crossing."
         },
         "ac-us-nkit-iso": {
-          "url": "/assets/patches/acdx/0.38.1/ac-us-nkit-iso.xdelta",
-          "outputName": "ACDX-0.38.1.iso",
-          "outputSize": 34394112,
-          "outputSha1": "7EE321F0052845B52A9398EA52940736A8EF2C86"
+            "label": "Animal Crossing US NKit ISO",
+            "format": "nkit.iso",
+            "region": "US",
+            "size": 27574272,
+            "sha1": "8FB378C9E4D3284FBACABC3DA15FB15C9157CEB7",
+            "sha256": "A08AD2654831AB298071BDCDF727945EFCFDD50D2B0E3512A3D361EE7B18296D",
+            "notes": "NKit images must be patched from an exact source hash; this tool does not normalize NKit to ISO."
         }
-      }
     },
-    {
-      "version": "0.38.2",
-      "orderId": 382,
-      "date": "2026-06-20",
-      "label": "AC Deluxe 0.38.2",
-      "summary": "Patch 38.2 includes several gameplay and visual bug fixes, improved N64 clock behavior, corrected dialogue and catalog text issues, added e+ fishing tourney messages, and expands player animation data with fixes for animation rotation clipping.",
-      "changelog": [
-        "Fixed N64 banti fadeout behavior when opening submenus.",
-        "Fixed eel shadows reverting incorrectly after scare-away or bite-failure states.",
-        "Fixed rainbow rendering.",
-        "Fixed needlework NPC talk state selection for what_happen vs other_happen.",
-        "Fixed inverted fish/insect completion dialogue in quest greetings.",
-        "Fixed catalog item names for item1 entries with furniture variants.",
-        "Added all player animation data.",
-        "Fixed rotation clipping on some player animations.",
-        "Improved wade-disabled player behavior by consistently running Player_actor_Set_ScrollDemo_forWade across states.",
-        "Fixed N64 clock display so midnight and noon show as 12.",
-        "Added acre locations to all non-perfect shrine/plaza hints.",
-        "Added fish messages for e+ fish during the fishing tourney."
-      ],
-      "patches": {
-        "ac-us-iso": {
-          "url": "/assets/patches/acdx/0.38.2/ac-us-iso.xdelta",
-          "outputName": "ACDX-0.38.2.iso",
-          "outputSize": 34385920,
-          "outputSha1": "AC82073BA6228FF7CAC4562042447A4B2EEAAE16"
+    "releases": [
+        {
+            "version": "0.38.1",
+            "orderId": 381,
+            "date": "2026-06-17",
+            "label": "AC Deluxe 0.38.1",
+            "summary": "Patch 38.1 includes new e+ behavior fixes, island crash fixes, golden tool progression fixes, and a save-version upgrade.",
+            "changelog": [
+                "The new e+ fish have their correct sound effects when biting and caught.",
+                "The hercules beetle has its correct sound effect when being scared away.",
+                "The pinball furniture item plays its sound effect from its \"front\" face now, instead of its \"side\" face.",
+                "The TV with VCR now previews its animation in the catalog.",
+                "A crash that could occur when going to the island has been fixed.",
+                "The islander should no longer get stuck indoors indefinitely.",
+                "Receiving a golden watering can before receiving a golden axe will no longer lock the player out of receiving the golden axe as well. Once more, a one-time reset to the golden axe flag will be applied when upgrading to this patch version.",
+                "K.K. live performances have the proper beat tempo after upgrading to the e+ audiorom.",
+                "A bunch of other minor e+ decomp fixes have been added. There are still a lot that need to be brought over.",
+                "Since this version includes a save-version upgrade, back up your save file before launching it!"
+            ],
+            "patches": {
+                "ac-us-iso": {
+                    "url": "/assets/patches/acdx/0.38.1/ac-us-iso.xdelta",
+                    "outputName": "ACDX-0.38.1.iso",
+                    "outputSize": 34394112,
+                    "outputSha1": "7EE321F0052845B52A9398EA52940736A8EF2C86"
+                },
+                "ac-aus-iso": {
+                    "url": "/assets/patches/acdx/0.38.1/ac-aus-iso.xdelta",
+                    "outputName": "ACDX-0.38.1.iso",
+                    "outputSize": 34394112,
+                    "outputSha1": "7EE321F0052845B52A9398EA52940736A8EF2C86"
+                },
+                "ac-pal-iso": {
+                    "url": "/assets/patches/acdx/0.38.1/ac-pal-iso.xdelta",
+                    "outputName": "ACDX-0.38.1.iso",
+                    "outputSize": 34394112,
+                    "outputSha1": "7EE321F0052845B52A9398EA52940736A8EF2C86"
+                },
+                "ac-us-nkit-iso": {
+                    "url": "/assets/patches/acdx/0.38.1/ac-us-nkit-iso.xdelta",
+                    "outputName": "ACDX-0.38.1.iso",
+                    "outputSize": 34394112,
+                    "outputSha1": "7EE321F0052845B52A9398EA52940736A8EF2C86"
+                }
+            }
         },
-        "ac-aus-iso": {
-          "url": "/assets/patches/acdx/0.38.2/ac-aus-iso.xdelta",
-          "outputName": "ACDX-0.38.2.iso",
-          "outputSize": 34385920,
-          "outputSha1": "AC82073BA6228FF7CAC4562042447A4B2EEAAE16"
+        {
+            "version": "0.38.2",
+            "orderId": 382,
+            "date": "2026-06-20",
+            "label": "AC Deluxe 0.38.2",
+            "summary": "Patch 38.2 includes several gameplay and visual bug fixes, improved N64 clock behavior, corrected dialogue and catalog text issues, added e+ fishing tourney messages, and expands player animation data with fixes for animation rotation clipping.",
+            "changelog": [
+                "Fixed N64 banti fadeout behavior when opening submenus.",
+                "Fixed eel shadows reverting incorrectly after scare-away or bite-failure states.",
+                "Fixed rainbow rendering.",
+                "Fixed needlework NPC talk state selection for what_happen vs other_happen.",
+                "Fixed inverted fish/insect completion dialogue in quest greetings.",
+                "Fixed catalog item names for item1 entries with furniture variants.",
+                "Added all player animation data.",
+                "Fixed rotation clipping on some player animations.",
+                "Improved wade-disabled player behavior by consistently running Player_actor_Set_ScrollDemo_forWade across states.",
+                "Fixed N64 clock display so midnight and noon show as 12.",
+                "Added acre locations to all non-perfect shrine/plaza hints.",
+                "Added fish messages for e+ fish during the fishing tourney."
+            ],
+            "patches": {
+                "ac-us-iso": {
+                    "url": "/assets/patches/acdx/0.38.2/ac-us-iso.xdelta",
+                    "outputName": "ACDX-0.38.2.iso",
+                    "outputSize": 34385920,
+                    "outputSha1": "AC82073BA6228FF7CAC4562042447A4B2EEAAE16"
+                },
+                "ac-aus-iso": {
+                    "url": "/assets/patches/acdx/0.38.2/ac-aus-iso.xdelta",
+                    "outputName": "ACDX-0.38.2.iso",
+                    "outputSize": 34385920,
+                    "outputSha1": "AC82073BA6228FF7CAC4562042447A4B2EEAAE16"
+                },
+                "ac-pal-iso": {
+                    "url": "/assets/patches/acdx/0.38.2/ac-pal-iso.xdelta",
+                    "outputName": "ACDX-0.38.2.iso",
+                    "outputSize": 34385920,
+                    "outputSha1": "AC82073BA6228FF7CAC4562042447A4B2EEAAE16"
+                },
+                "ac-us-nkit-iso": {
+                    "url": "/assets/patches/acdx/0.38.2/ac-us-nkit-iso.xdelta",
+                    "outputName": "ACDX-0.38.2.iso",
+                    "outputSize": 34385920,
+                    "outputSha1": "AC82073BA6228FF7CAC4562042447A4B2EEAAE16"
+                }
+            }
         },
-        "ac-pal-iso": {
-          "url": "/assets/patches/acdx/0.38.2/ac-pal-iso.xdelta",
-          "outputName": "ACDX-0.38.2.iso",
-          "outputSize": 34385920,
-          "outputSha1": "AC82073BA6228FF7CAC4562042447A4B2EEAAE16"
+        {
+            "version": "0.38.3",
+            "orderId": 383,
+            "date": "2026-06-22",
+            "label": "AC Deluxe 0.38.3",
+            "summary": "Patch 38.3 makes fruit baskets valid for fruit villager quests, fixes a softlock when changing shirts, and more!",
+            "changelog": [
+                "Clovers are no longer counted as weeds when doing town assessment.",
+                "Updated Farley's shrine spawn positioning.",
+                "Fruit baskets are valid for fruit villager quests.",
+                "Re-planting grown flowers in a hole is more natural looking.",
+                "Chip will now give players a free fishing rod if they do not have one during Fishing Tournies.",
+                "Fixed softlock when pressing B while changing from a regular shirt to a custom design.",
+                "Fixed some player tools which were marked invalid for Player-to-Player Nook codes.",
+                "Fixed some paintings not being reorderable.",
+                "Fixed Farley's model transparency."
+            ],
+            "patches": {
+                "ac-us-iso": {
+                    "url": "/assets/patches/acdx/0.38.3/ac-us-iso.xdelta",
+                    "outputName": "ACDX-0.38.3.iso",
+                    "outputSize": 34406400,
+                    "outputSha1": "EAD10EE314DC3F5F05B654E1A254FB2FFDCC01BC"
+                },
+                "ac-aus-iso": {
+                    "url": "/assets/patches/acdx/0.38.3/ac-aus-iso.xdelta",
+                    "outputName": "ACDX-0.38.3.iso",
+                    "outputSize": 34406400,
+                    "outputSha1": "EAD10EE314DC3F5F05B654E1A254FB2FFDCC01BC"
+                },
+                "ac-pal-iso": {
+                    "url": "/assets/patches/acdx/0.38.3/ac-pal-iso.xdelta",
+                    "outputName": "ACDX-0.38.3.iso",
+                    "outputSize": 34406400,
+                    "outputSha1": "EAD10EE314DC3F5F05B654E1A254FB2FFDCC01BC"
+                },
+                "ac-us-nkit-iso": {
+                    "url": "/assets/patches/acdx/0.38.3/ac-us-nkit-iso.xdelta",
+                    "outputName": "ACDX-0.38.3.iso",
+                    "outputSize": 34406400,
+                    "outputSha1": "EAD10EE314DC3F5F05B654E1A254FB2FFDCC01BC"
+                }
+            }
         },
-        "ac-us-nkit-iso": {
-          "url": "/assets/patches/acdx/0.38.2/ac-us-nkit-iso.xdelta",
-          "outputName": "ACDX-0.38.2.iso",
-          "outputSize": 34385920,
-          "outputSha1": "AC82073BA6228FF7CAC4562042447A4B2EEAAE16"
+        {
+            "version": "0.39.0",
+            "orderId": 390,
+            "date": "2026-07-21",
+            "label": "AC Deluxe 0.39.0",
+            "summary": "Patch 39.0 adds monkey villagers, custom animations, and tons of bug fixes!",
+            "changelog": [
+                "Added monkey villager type based on Porter!",
+                "Added Champ & Nana, with the rest of the Wild World villagers coming in a later patch!",
+                "Added the ability to fill in dirt holes by pressing B without a shovel.",
+                "Holes no longer disappear on acre change, and now disappear when reloading the map instead.",
+                "Added a custom watering can animation. This animation will be revised in the future",
+                "Renna placement now uses an ask/nudge/confirm dialogue; items under the sign are sent to the police station, and buried items no longer block placement.",
+                "Fixed Renna's offer list sometimes containing duplicate decorations.",
+                "Wisp spirits only spawn on unchanged ground and adjust their height to the tile beneath them. They will not spawn on top of buildings anymore.",
+                "Building collision now persists correctly, preventing NPCs and insects from spawning on footprints before buildings load. No more NPCs on top of houses!",
+                "Improved dropped design rendering performance.",
+                "Presents can always be multi-selected for opening.",
+                "Fixed stackable items inside presents being able to be stacked together.",
+                "Bank, loan repayment, and address book menus now support D-Pad and keyboard cursor movement.",
+                "Fixed the town map showing stale data when travelling to a new town.",
+                "Fanfares no longer interrupt field BGM.",
+                "Fixed swapping fish or insects with other fish/insects causing odd behavior.",
+                "Fish and insects can no longer be multi-selected while indoors.",
+                "Copper will only mention Gulliver while his event is not complete.",
+                "Fixed dung beetles mishandling when their ball despawns.",
+                "Fixed black roses watered with the golden can losing their golden can watered status every field load.",
+                "Fixed door areas being invalid spots to stand up.",
+                "Fixed thunder effect timing.",
+                "Pond frog sounds only play when a frog is present.",
+                "Re-implemented & improved NES emulator FDS audio.",
+                "Legend of Zelda and other NES games should now render in Dolphin without changing texture cache safety. This may slightly impact performance on emulator only.",
+                "Opening the mailbox while holding a watering can will no longer water the mailbox before opening it."
+            ],
+            "patches": {
+                "ac-us-iso": {
+                    "url": "/assets/patches/acdx/0.39.0/ac-us-iso.xdelta",
+                    "outputName": "ACDX-0.39.0.iso",
+                    "outputSize": 34443264,
+                    "outputSha1": "7AA550F588933CEC06738B6C67FC77412559EE65"
+                },
+                "ac-aus-iso": {
+                    "url": "/assets/patches/acdx/0.39.0/ac-aus-iso.xdelta",
+                    "outputName": "ACDX-0.39.0.iso",
+                    "outputSize": 34443264,
+                    "outputSha1": "7AA550F588933CEC06738B6C67FC77412559EE65"
+                },
+                "ac-pal-iso": {
+                    "url": "/assets/patches/acdx/0.39.0/ac-pal-iso.xdelta",
+                    "outputName": "ACDX-0.39.0.iso",
+                    "outputSize": 34443264,
+                    "outputSha1": "7AA550F588933CEC06738B6C67FC77412559EE65"
+                },
+                "ac-us-nkit-iso": {
+                    "url": "/assets/patches/acdx/0.39.0/ac-us-nkit-iso.xdelta",
+                    "outputName": "ACDX-0.39.0.iso",
+                    "outputSize": 34443264,
+                    "outputSha1": "7AA550F588933CEC06738B6C67FC77412559EE65"
+                }
+            }
         }
-      }
-    },
-    {
-      "version": "0.38.3",
-      "orderId": 383,
-      "date": "2026-06-22",
-      "label": "AC Deluxe 0.38.3",
-      "summary": "Patch 38.3 makes fruit baskets valid for fruit villager quests, fixes a softlock when changing shirts, and more!",
-      "changelog": [
-        "Clovers are no longer counted as weeds when doing town assessment.",
-        "Updated Farley's shrine spawn positioning.",
-        "Fruit baskets are valid for fruit villager quests.",
-        "Re-planting grown flowers in a hole is more natural looking.",
-        "Chip will now give players a free fishing rod if they do not have one during Fishing Tournies.",
-        "Fixed softlock when pressing B while changing from a regular shirt to a custom design.",
-        "Fixed some player tools which were marked invalid for Player-to-Player Nook codes.",
-        "Fixed some paintings not being reorderable.",
-        "Fixed Farley's model transparency."
-      ],
-      "patches": {
-        "ac-us-iso": {
-          "url": "/assets/patches/acdx/0.38.3/ac-us-iso.xdelta",
-          "outputName": "ACDX-0.38.3.iso",
-          "outputSize": 34406400,
-          "outputSha1": "EAD10EE314DC3F5F05B654E1A254FB2FFDCC01BC"
-        },
-        "ac-aus-iso": {
-          "url": "/assets/patches/acdx/0.38.3/ac-aus-iso.xdelta",
-          "outputName": "ACDX-0.38.3.iso",
-          "outputSize": 34406400,
-          "outputSha1": "EAD10EE314DC3F5F05B654E1A254FB2FFDCC01BC"
-        },
-        "ac-pal-iso": {
-          "url": "/assets/patches/acdx/0.38.3/ac-pal-iso.xdelta",
-          "outputName": "ACDX-0.38.3.iso",
-          "outputSize": 34406400,
-          "outputSha1": "EAD10EE314DC3F5F05B654E1A254FB2FFDCC01BC"
-        },
-        "ac-us-nkit-iso": {
-          "url": "/assets/patches/acdx/0.38.3/ac-us-nkit-iso.xdelta",
-          "outputName": "ACDX-0.38.3.iso",
-          "outputSize": 34406400,
-          "outputSha1": "EAD10EE314DC3F5F05B654E1A254FB2FFDCC01BC"
-        }
-      }
-    }
-  ]
+    ]
 }
