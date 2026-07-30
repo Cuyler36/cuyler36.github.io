@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "latest": "0.39.0",
+    "latest": "0.39.1",
     "sources": {
         "ac-us-iso": {
             "label": "Animal Crossing US ISO",
@@ -234,6 +234,51 @@
                     "outputName": "ACDX-0.39.0.iso",
                     "outputSize": 34443264,
                     "outputSha1": "7AA550F588933CEC06738B6C67FC77412559EE65"
+                }
+            }
+        },
+        {
+            "version": "0.39.1",
+            "orderId": 391,
+            "date": "2026-07-30",
+            "label": "AC Deluxe 0.39.1",
+            "summary": "Patch 39.1 fixes some bugs, overhauls how data is loaded, and adds an e+ style title screen animation for the \"Deluxe\" logo.",
+            "changelog": [
+                "Added an e+ style title screen animation for the \"Deluxe\" logo.",
+                "Furniture now loads from disk via leaf RELs, reclaiming a large amount of ram for future content.",
+                "Acre data now loads from disk as well.",
+                "Renna's payment dialogue now shows the wallet UI when bells are involved.",
+                "Fanfare fade-in/out windows are shorter for snappier transitions.",
+                "Fixed Porter's travel cutscene being interrupted when other NPCs walked onto the station (vanilla bug).",
+                "Fixed structure collision placement for fireworks stall/New Year's table and bridge variants.",
+                "Fixed holes not resetting when entering event maps (regression from 39.0's hole persistence change).",
+                "Fixed a beep noise when catching a bee while being chased (bee chase BGM colliding with the catch fanfare).",
+                "Fixed bee texture alignment which may have caused weird bee textures."
+            ],
+            "patches": {
+                "ac-us-iso": {
+                    "url": "/assets/patches/acdx/0.39.1/ac-us-iso.xdelta",
+                    "outputName": "ACDX-0.39.1.iso",
+                    "outputSize": 34527232,
+                    "outputSha1": "0995F700A53B8064987A68BF22975AA68CC39CE0"
+                },
+                "ac-aus-iso": {
+                    "url": "/assets/patches/acdx/0.39.1/ac-aus-iso.xdelta",
+                    "outputName": "ACDX-0.39.1.iso",
+                    "outputSize": 34527232,
+                    "outputSha1": "0995F700A53B8064987A68BF22975AA68CC39CE0"
+                },
+                "ac-pal-iso": {
+                    "url": "/assets/patches/acdx/0.39.1/ac-pal-iso.xdelta",
+                    "outputName": "ACDX-0.39.1.iso",
+                    "outputSize": 34527232,
+                    "outputSha1": "0995F700A53B8064987A68BF22975AA68CC39CE0"
+                },
+                "ac-us-nkit-iso": {
+                    "url": "/assets/patches/acdx/0.39.1/ac-us-nkit-iso.xdelta",
+                    "outputName": "ACDX-0.39.1.iso",
+                    "outputSize": 34527232,
+                    "outputSha1": "0995F700A53B8064987A68BF22975AA68CC39CE0"
                 }
             }
         }
