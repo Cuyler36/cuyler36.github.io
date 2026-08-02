@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "latest": "0.40.0",
+    "latest": "0.40.1",
     "sources": {
         "ac-us-iso": {
             "label": "Animal Crossing US ISO",
@@ -322,6 +322,42 @@
                     "outputName": "ACDX-0.40.0.iso",
                     "outputSize": 34586624,
                     "outputSha1": "4B6A4103855C7328977A3CB7FB1F4FD8CF3FBC2A"
+                }
+            }
+        },
+        {
+            "version": "0.40.1",
+            "orderId": 401,
+            "date": "2026-08-02",
+            "label": "AC Deluxe 0.40.1",
+            "summary": "Patch 40.1 fixes a serious issue preventing NPC houses from spawning.",
+            "changelog": [
+                "Fixed a bug that prevented NPC houses from spawning."
+            ],
+            "patches": {
+                "ac-us-iso": {
+                    "url": "/assets/patches/acdx/0.40.1/ac-us-iso.xdelta",
+                    "outputName": "ACDX-0.40.1.iso",
+                    "outputSize": 34586624,
+                    "outputSha1": "979C3CE73C005523CC4F0D9837AFEC22E9B136C0"
+                },
+                "ac-aus-iso": {
+                    "url": "/assets/patches/acdx/0.40.1/ac-aus-iso.xdelta",
+                    "outputName": "ACDX-0.40.1.iso",
+                    "outputSize": 34586624,
+                    "outputSha1": "979C3CE73C005523CC4F0D9837AFEC22E9B136C0"
+                },
+                "ac-pal-iso": {
+                    "url": "/assets/patches/acdx/0.40.1/ac-pal-iso.xdelta",
+                    "outputName": "ACDX-0.40.1.iso",
+                    "outputSize": 34586624,
+                    "outputSha1": "979C3CE73C005523CC4F0D9837AFEC22E9B136C0"
+                },
+                "ac-us-nkit-iso": {
+                    "url": "/assets/patches/acdx/0.40.1/ac-us-nkit-iso.xdelta",
+                    "outputName": "ACDX-0.40.1.iso",
+                    "outputSize": 34586624,
+                    "outputSha1": "979C3CE73C005523CC4F0D9837AFEC22E9B136C0"
                 }
             }
         }
