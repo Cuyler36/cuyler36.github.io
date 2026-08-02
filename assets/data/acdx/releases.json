@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "latest": "0.39.1",
+    "latest": "0.40.0",
     "sources": {
         "ac-us-iso": {
             "label": "Animal Crossing US ISO",
@@ -279,6 +279,49 @@
                     "outputName": "ACDX-0.39.1.iso",
                     "outputSize": 34527232,
                     "outputSha1": "0995F700A53B8064987A68BF22975AA68CC39CE0"
+                }
+            }
+        },
+        {
+            "version": "0.40.0",
+            "orderId": 400,
+            "date": "2026-08-02",
+            "label": "AC Deluxe 0.40.0",
+            "summary": "Patch 40.0 adds outdoor furniture, improves balloon present RNG logic and Nook password gifts, and fixes aerobics event NPC loading.",
+            "changelog": [
+                "Added outdoor furniture: place, pick up, move, and rotate furniture outside in town.",
+                "Displaced outdoor furniture is sent to the lost & found when cleared by events or other systems.",
+                "Playing music furniture outdoors shows a warning that music only works indoors.",
+                "Improved Mario-themed item selection from balloon presents, preferring uncollected Mario furniture, wallpaper, and carpet.",
+                "Golden Axe redeemed via password at Nook's no longer counts toward the present gift counter.",
+                "Fixed Copper and Tortimer failing to load correctly for both aerobics events.",
+                "Furniture shouldn't have corrupted textures when loaded through Nintendont anymore.",
+                "NOTE: You SHOULD disable disk read speed emulation. This is applicable for Dolphin, Nintendont, and Swiss GC. It WILL improve your experience with outdoor furniture, and in general."
+            ],
+            "patches": {
+                "ac-us-iso": {
+                    "url": "/assets/patches/acdx/0.40.0/ac-us-iso.xdelta",
+                    "outputName": "ACDX-0.40.0.iso",
+                    "outputSize": 34586624,
+                    "outputSha1": "4B6A4103855C7328977A3CB7FB1F4FD8CF3FBC2A"
+                },
+                "ac-aus-iso": {
+                    "url": "/assets/patches/acdx/0.40.0/ac-aus-iso.xdelta",
+                    "outputName": "ACDX-0.40.0.iso",
+                    "outputSize": 34586624,
+                    "outputSha1": "4B6A4103855C7328977A3CB7FB1F4FD8CF3FBC2A"
+                },
+                "ac-pal-iso": {
+                    "url": "/assets/patches/acdx/0.40.0/ac-pal-iso.xdelta",
+                    "outputName": "ACDX-0.40.0.iso",
+                    "outputSize": 34586624,
+                    "outputSha1": "4B6A4103855C7328977A3CB7FB1F4FD8CF3FBC2A"
+                },
+                "ac-us-nkit-iso": {
+                    "url": "/assets/patches/acdx/0.40.0/ac-us-nkit-iso.xdelta",
+                    "outputName": "ACDX-0.40.0.iso",
+                    "outputSize": 34586624,
+                    "outputSha1": "4B6A4103855C7328977A3CB7FB1F4FD8CF3FBC2A"
                 }
             }
         }
