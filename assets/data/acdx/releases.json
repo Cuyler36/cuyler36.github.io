@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "latest": "0.40.1",
+    "latest": "0.41.0",
     "sources": {
         "ac-us-iso": {
             "label": "Animal Crossing US ISO",
@@ -358,6 +358,59 @@
                     "outputName": "ACDX-0.40.1.iso",
                     "outputSize": 34586624,
                     "outputSha1": "979C3CE73C005523CC4F0D9837AFEC22E9B136C0"
+                }
+            }
+        },
+        {
+            "version": "0.41.0",
+            "orderId": 410,
+            "date": "2026-08-05",
+            "label": "AC Deluxe 0.41.0",
+            "summary": "Patch 41.0 uses a custom GameID and allows placing furniture on tables outdoors.",
+            "changelog": [
+                "Switched to a custom GameID with an updated save layout.",
+                "Vanilla Animal Crossing saves (US, Australian, PAL) can be imported into Deluxe (also older DX saves). Imported saves will NOT be deleted. You can have a vanilla town and a Deluxe town on the same memory card.",
+                "Save data for letters and designs are split out into their own files now. In the future additional slot files may be added, similar to how they work in e+.",
+                "Deluxe configuration data is now a separate file so loading stays fast on boot.",
+                "Memory card writes are much faster thanks to a dirty-sector CRC32 cache. Saves can be upwards of 3-4x faster on a 1019 block memcard.",
+                "Added the rest of the DnM/DnM+ furniture. These items are generally obtainable from their original sources. A few event items currently reside with Redd until they are given permanent homes later.",
+                "Restored the Japanese & Public Bath furniture themes.",
+                "The fishing trophy and angler trophy have been reworked to the rewards for the two fishing tournies. Tortimer now gives his DnM+ presents instead of the trophies.",
+                "Dad sends you osechi on New Year's Day.",
+                "Renamed several roughly translated JP-only furniture.",
+                "You can now place furniture and drop items on tables outside.",
+                "Fixed several outdoor furniture bugs, including the DUMMY item model.",
+                "Fixed Copper and Tortimer not actually spawning for aerobics events.",
+                "Fixed the Bullet Bill cannon effect when used outdoors.",
+                "Fixed the Stone Coin rolling animation and the Mouth of Truth player shock effect.",
+                "Fixed getting stuck standing up from seats onto outdoor furniture footprints.",
+                "Fixed using seats to jump into water and other normally unreachable places.",
+                "Fixed Mario balloon presents sometimes giving the wrong item."
+            ],
+            "patches": {
+                "ac-us-iso": {
+                    "url": "/assets/patches/acdx/0.41.0/ac-us-iso.xdelta",
+                    "outputName": "ACDX-0.41.0.iso",
+                    "outputSize": 34750464,
+                    "outputSha1": "203B5954E07FE1C4891B3A414DD4B2C43396D174"
+                },
+                "ac-aus-iso": {
+                    "url": "/assets/patches/acdx/0.41.0/ac-aus-iso.xdelta",
+                    "outputName": "ACDX-0.41.0.iso",
+                    "outputSize": 34750464,
+                    "outputSha1": "203B5954E07FE1C4891B3A414DD4B2C43396D174"
+                },
+                "ac-pal-iso": {
+                    "url": "/assets/patches/acdx/0.41.0/ac-pal-iso.xdelta",
+                    "outputName": "ACDX-0.41.0.iso",
+                    "outputSize": 34750464,
+                    "outputSha1": "203B5954E07FE1C4891B3A414DD4B2C43396D174"
+                },
+                "ac-us-nkit-iso": {
+                    "url": "/assets/patches/acdx/0.41.0/ac-us-nkit-iso.xdelta",
+                    "outputName": "ACDX-0.41.0.iso",
+                    "outputSize": 34750464,
+                    "outputSha1": "203B5954E07FE1C4891B3A414DD4B2C43396D174"
                 }
             }
         }
