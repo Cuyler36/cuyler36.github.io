@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "latest": "0.41.0",
+    "latest": "0.41.1",
     "sources": {
         "ac-us-iso": {
             "label": "Animal Crossing US ISO",
@@ -411,6 +411,51 @@
                     "outputName": "ACDX-0.41.0.iso",
                     "outputSize": 34750464,
                     "outputSha1": "203B5954E07FE1C4891B3A414DD4B2C43396D174"
+                }
+            }
+        },
+        {
+            "version": "0.41.1",
+            "orderId": 411,
+            "date": "2026-08-11",
+            "label": "AC Deluxe 0.41.1",
+            "summary": "Patch 41.1 fixes crashes due to new furniture, adds transparency as a color in the design editor, and fixes other minor bugs.",
+            "changelog": [
+                "Design editor transparency now shows a checker pattern on the canvas (instead of being gray) and has a palette color entry.",
+                "NES/Famicom memcard game/save files now work with the Deluxe GameID (GADE/XX), not just vanilla GAFE01.",
+                "Fixed 2-tile outdoor furniture shifting or saving the wrong footprint after rotating.",
+                "Fixed outdoor furniture lighting/specular issues (e.g. balloons looking wrong or punching holes as the camera moves).",
+                "Fixed title-screen demos / player-select corrupting outdoor furniture Place data in the save.",
+                "Fixed medicine triggering its use animation when putting it back in the inventory.",
+                "Fixed villagers getting stuck inside when their house actor isn't loaded (e.g. adjacent-acre preload).",
+                "Fixed missing textures on daruma furniture.",
+                "Fixed crashes caused by missing assets from the robotic flagman and warning sign furniture items.",
+                "Fixed furniture instrument rhythm sync when no BGM is playing (fixes gyroid movement outdoors)."
+            ],
+            "patches": {
+                "ac-us-iso": {
+                    "url": "/assets/patches/acdx/0.41.1/ac-us-iso.xdelta",
+                    "outputName": "ACDX-0.41.1.iso",
+                    "outputSize": 34758656,
+                    "outputSha1": "25E9694F15783E3229619D55F6BFCA97C46C630F"
+                },
+                "ac-aus-iso": {
+                    "url": "/assets/patches/acdx/0.41.1/ac-aus-iso.xdelta",
+                    "outputName": "ACDX-0.41.1.iso",
+                    "outputSize": 34758656,
+                    "outputSha1": "25E9694F15783E3229619D55F6BFCA97C46C630F"
+                },
+                "ac-pal-iso": {
+                    "url": "/assets/patches/acdx/0.41.1/ac-pal-iso.xdelta",
+                    "outputName": "ACDX-0.41.1.iso",
+                    "outputSize": 34758656,
+                    "outputSha1": "25E9694F15783E3229619D55F6BFCA97C46C630F"
+                },
+                "ac-us-nkit-iso": {
+                    "url": "/assets/patches/acdx/0.41.1/ac-us-nkit-iso.xdelta",
+                    "outputName": "ACDX-0.41.1.iso",
+                    "outputSize": 34758656,
+                    "outputSha1": "25E9694F15783E3229619D55F6BFCA97C46C630F"
                 }
             }
         }
