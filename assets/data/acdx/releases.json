@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "latest": "0.41.1",
+    "latest": "0.41.2",
     "sources": {
         "ac-us-iso": {
             "label": "Animal Crossing US ISO",
@@ -456,6 +456,42 @@
                     "outputName": "ACDX-0.41.1.iso",
                     "outputSize": 34758656,
                     "outputSha1": "25E9694F15783E3229619D55F6BFCA97C46C630F"
+                }
+            }
+        },
+        {
+            "version": "0.41.2",
+            "orderId": 412,
+            "date": "2026-08-12",
+            "label": "AC Deluxe 0.41.2",
+            "summary": "Patch 41.2 fixes a blackscreen on boot in Nintendont.",
+            "changelog": [
+                "Fixed Nintendont loading by identifying when launched through Nintendont and changing AR DMA function logic."
+            ],
+            "patches": {
+                "ac-us-iso": {
+                    "url": "/assets/patches/acdx/0.41.2/ac-us-iso.xdelta",
+                    "outputName": "ACDX-0.41.2.iso",
+                    "outputSize": 34758656,
+                    "outputSha1": "F094381B464CBBDEEBC737EE7519A1CDB30C0CC9"
+                },
+                "ac-aus-iso": {
+                    "url": "/assets/patches/acdx/0.41.2/ac-aus-iso.xdelta",
+                    "outputName": "ACDX-0.41.2.iso",
+                    "outputSize": 34758656,
+                    "outputSha1": "F094381B464CBBDEEBC737EE7519A1CDB30C0CC9"
+                },
+                "ac-pal-iso": {
+                    "url": "/assets/patches/acdx/0.41.2/ac-pal-iso.xdelta",
+                    "outputName": "ACDX-0.41.2.iso",
+                    "outputSize": 34758656,
+                    "outputSha1": "F094381B464CBBDEEBC737EE7519A1CDB30C0CC9"
+                },
+                "ac-us-nkit-iso": {
+                    "url": "/assets/patches/acdx/0.41.2/ac-us-nkit-iso.xdelta",
+                    "outputName": "ACDX-0.41.2.iso",
+                    "outputSize": 34758656,
+                    "outputSha1": "F094381B464CBBDEEBC737EE7519A1CDB30C0CC9"
                 }
             }
         }
