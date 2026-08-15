@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "latest": "0.41.2",
+    "latest": "0.42.0",
     "sources": {
         "ac-us-iso": {
             "label": "Animal Crossing US ISO",
@@ -492,6 +492,49 @@
                     "outputName": "ACDX-0.41.2.iso",
                     "outputSize": 34758656,
                     "outputSha1": "F094381B464CBBDEEBC737EE7519A1CDB30C0CC9"
+                }
+            }
+        },
+        {
+            "version": "0.42.0",
+            "orderId": 420,
+            "date": "2026-08-15",
+            "label": "AC Deluxe 0.42.0",
+            "summary": "Patch 42.0 adds eight new K.K. songs from City Folk, restores the US title screen, adds more QoL, and has bugfixes!",
+            "changelog": [
+                "Eight new K.K. songs including the three invalid e+ songs have been added! The three invalid songs from City Folk are now the invalid songs for DX!",
+                "The US title screen theme has been restored. The demo sequences will alternate between e+ and US title themes.",
+                "You can now put away Bell bags to your wallet without having to pick them up and move them.",
+                "Taking out Bell bags from your wallet now gives an option for the maximum you can withdraw.",
+                "Fixed K.K. Slider's performance jumping when K.K. starts talking at the end of the performance.",
+                "Fixed outdoor furniture disappearing during K.K. Slider's performance and not reappearing until switching acres.",
+                "Fixed NES/Famicom memcard game and save files not working with the new Deluxe game ID. They are now compatible with both DX and vanilla.",
+                "Fixed a misspelling in an obscure Farway Museum letter."
+            ],
+            "patches": {
+                "ac-us-iso": {
+                    "url": "/assets/patches/acdx/0.42.0/ac-us-iso.xdelta",
+                    "outputName": "ACDX-0.42.0.iso",
+                    "outputSize": 35526656,
+                    "outputSha1": "C86852CE49DBC98FC69BF4238F6F13A2BE4FFDDA"
+                },
+                "ac-aus-iso": {
+                    "url": "/assets/patches/acdx/0.42.0/ac-aus-iso.xdelta",
+                    "outputName": "ACDX-0.42.0.iso",
+                    "outputSize": 35526656,
+                    "outputSha1": "C86852CE49DBC98FC69BF4238F6F13A2BE4FFDDA"
+                },
+                "ac-pal-iso": {
+                    "url": "/assets/patches/acdx/0.42.0/ac-pal-iso.xdelta",
+                    "outputName": "ACDX-0.42.0.iso",
+                    "outputSize": 35526656,
+                    "outputSha1": "C86852CE49DBC98FC69BF4238F6F13A2BE4FFDDA"
+                },
+                "ac-us-nkit-iso": {
+                    "url": "/assets/patches/acdx/0.42.0/ac-us-nkit-iso.xdelta",
+                    "outputName": "ACDX-0.42.0.iso",
+                    "outputSize": 35526656,
+                    "outputSha1": "C86852CE49DBC98FC69BF4238F6F13A2BE4FFDDA"
                 }
             }
         }
