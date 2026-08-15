@@ -190,6 +190,53 @@
     `).join('')
   }
 
+  function bindTabs () {
+    const tablist = root.querySelector('[role="tablist"]')
+    if (!tablist) return
+
+    const tabs = Array.from(tablist.querySelectorAll('[role="tab"]'))
+
+    function selectTab (selected) {
+      tabs.forEach(tab => {
+        const selectedNow = tab === selected
+        tab.setAttribute('aria-selected', selectedNow ? 'true' : 'false')
+        tab.tabIndex = selectedNow ? 0 : -1
+        const panel = document.getElementById(tab.getAttribute('aria-controls'))
+        if (panel) panel.hidden = !selectedNow
+      })
+    }
+
+    tablist.addEventListener('click', event => {
+      const tab = event.target.closest('[role="tab"]')
+      if (tab) selectTab(tab)
+    })
+
+    tablist.addEventListener('keydown', event => {
+      const currentIndex = tabs.indexOf(document.activeElement)
+      if (currentIndex === -1) return
+
+      let nextIndex = currentIndex
+      if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
+        nextIndex = (currentIndex + 1) % tabs.length
+      } else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
+        nextIndex = (currentIndex - 1 + tabs.length) % tabs.length
+      } else if (event.key === 'Home') {
+        nextIndex = 0
+      } else if (event.key === 'End') {
+        nextIndex = tabs.length - 1
+      } else {
+        return
+      }
+
+      event.preventDefault()
+      tabs[nextIndex].focus()
+      selectTab(tabs[nextIndex])
+    })
+
+    const hashTab = tabs.find(tab => tab.id && `#${tab.id}` === window.location.hash)
+    selectTab(hashTab || tabs.find(tab => tab.getAttribute('aria-selected') === 'true') || tabs[0])
+  }
+
   async function hashFileSha1 (file) {
     if (state.hashWorker) state.hashWorker.terminate()
 
@@ -403,6 +450,7 @@
     renderSelectedRelease()
     renderSources()
     renderChangelog()
+    bindTabs()
 
     els.version.addEventListener('change', handleVersionChange)
     els.sourceFile.addEventListener('change', event => validateSelectedFile(event.target.files[0]).catch(handleError))

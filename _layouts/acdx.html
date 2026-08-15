@@ -66,14 +66,46 @@ layout: page
     </div>
   </section>
 
-  <section class="acdx-panel" aria-labelledby="acdx-sources-heading">
-    <h2 id="acdx-sources-heading">Supported Sources</h2>
-    <div class="acdx-source-list" id="acdx-source-list"></div>
-  </section>
+  <section class="acdx-panel acdx-tabs" aria-label="Release details">
+    <div class="acdx-tab-list" role="tablist" aria-label="Changelog and supported sources">
+      <button
+        type="button"
+        class="acdx-tab"
+        id="acdx-changelog-heading"
+        role="tab"
+        aria-selected="true"
+        aria-controls="acdx-changelog-panel"
+        tabindex="0">
+        Changelog
+      </button>
+      <button
+        type="button"
+        class="acdx-tab"
+        id="acdx-sources-heading"
+        role="tab"
+        aria-selected="false"
+        aria-controls="acdx-sources-panel"
+        tabindex="-1">
+        Supported Sources
+      </button>
+    </div>
 
-  <section class="acdx-panel" aria-labelledby="acdx-changelog-heading">
-    <h2 id="acdx-changelog-heading">Changelog</h2>
-    <div class="acdx-changelog" id="acdx-changelog"></div>
+    <div
+      class="acdx-tab-panel"
+      id="acdx-changelog-panel"
+      role="tabpanel"
+      aria-labelledby="acdx-changelog-heading">
+      <div class="acdx-changelog" id="acdx-changelog"></div>
+    </div>
+
+    <div
+      class="acdx-tab-panel"
+      id="acdx-sources-panel"
+      role="tabpanel"
+      aria-labelledby="acdx-sources-heading"
+      hidden>
+      <div class="acdx-source-list" id="acdx-source-list"></div>
+    </div>
   </section>
 </div>
 

@@ -197,6 +197,46 @@
   color: var(--link);
 }
 
+.acdx-tabs {
+  padding-top: 0;
+}
+
+.acdx-tab-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin: 0 -1.25rem 1rem;
+  padding: 0 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.acdx-tab {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--meta);
+  font: inherit;
+  font-weight: 700;
+  padding: 0.9rem 0.75rem 0.7rem;
+  margin-bottom: -1px;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+}
+
+.acdx-tab:hover,
+.acdx-tab:focus-visible {
+  color: var(--text);
+}
+
+.acdx-tab[aria-selected="true"] {
+  color: var(--text);
+  border-bottom-color: var(--link);
+}
+
+.acdx-tab-panel[hidden] {
+  display: none;
+}
+
 .acdx-source-list,
 .acdx-changelog {
   display: grid;
