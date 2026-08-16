@@ -23,6 +23,8 @@
     changelog: document.getElementById('acdx-changelog')
   }
 
+  const CHANGELOG_BATCH_SIZE = 3
+
   const state = {
     metadata: null,
     selectedRelease: null,
@@ -33,7 +35,10 @@
     worker: null,
     hashWorker: null,
     hashRequestId: 0,
-    hashReject: null
+    hashReject: null,
+    changelogIndex: 0,
+    changelogSentinel: null,
+    changelogObserver: null
   }
 
   function escapeHtml (value) {
@@ -177,17 +182,131 @@
     `).join('')
   }
 
-  function renderChangelog () {
-    const releases = getOrderedReleases()
-    els.changelog.innerHTML = releases.map(release => `
-      <article class="acdx-card">
+  function changelogCardHtml (release, index, total) {
+    return `
+      <article class="acdx-card" aria-posinset="${index + 1}" aria-setsize="${total}">
         <h3>${escapeHtml(release.label || release.version)}</h3>
         <p class="acdx-muted">${escapeHtml(release.date || 'Undated release')}</p>
         <ul>
           ${(release.changelog || []).map(item => `<li>${escapeHtml(item)}</li>`).join('')}
         </ul>
       </article>
-    `).join('')
+    `
+  }
+
+  function changelogHasMore () {
+    return state.changelogIndex < getOrderedReleases().length
+  }
+
+  function setChangelogBusy (busy) {
+    els.changelog.setAttribute('aria-busy', busy ? 'true' : 'false')
+  }
+
+  function disconnectChangelogObserver () {
+    if (state.changelogObserver) {
+      state.changelogObserver.disconnect()
+      state.changelogObserver = null
+    }
+  }
+
+  function removeChangelogSentinel () {
+    if (state.changelogSentinel) {
+      state.changelogSentinel.remove()
+      state.changelogSentinel = null
+    }
+  }
+
+  function appendChangelogBatch () {
+    const releases = getOrderedReleases()
+    const batch = releases.slice(state.changelogIndex, state.changelogIndex + CHANGELOG_BATCH_SIZE)
+    if (batch.length === 0) return false
+
+    const html = batch.map((release, offset) => (
+      changelogCardHtml(release, state.changelogIndex + offset, releases.length)
+    )).join('')
+
+    if (state.changelogSentinel) {
+      state.changelogSentinel.insertAdjacentHTML('beforebegin', html)
+    } else {
+      els.changelog.insertAdjacentHTML('beforeend', html)
+    }
+
+    state.changelogIndex += batch.length
+    return changelogHasMore()
+  }
+
+  function finishChangelogIfComplete () {
+    if (changelogHasMore()) return
+    disconnectChangelogObserver()
+    removeChangelogSentinel()
+    setChangelogBusy(false)
+  }
+
+  function isChangelogPanelVisible () {
+    const panel = els.changelog && els.changelog.closest('.acdx-tab-panel')
+    return Boolean(panel && !panel.hidden)
+  }
+
+  function fillChangelogFrame () {
+    if (!isChangelogPanelVisible()) return
+
+    const frame = els.changelog
+    while (changelogHasMore() && frame.scrollHeight <= frame.clientHeight + 8) {
+      const before = frame.scrollHeight
+      if (!appendChangelogBatch()) break
+      if (frame.scrollHeight <= before) break
+    }
+
+    finishChangelogIfComplete()
+  }
+
+  function bindChangelogLazyLoad () {
+    if (!changelogHasMore() || !state.changelogSentinel) return
+
+    if (!('IntersectionObserver' in window)) {
+      while (appendChangelogBatch()) {}
+      finishChangelogIfComplete()
+      return
+    }
+
+    disconnectChangelogObserver()
+    state.changelogObserver = new IntersectionObserver(entries => {
+      if (!entries.some(entry => entry.isIntersecting)) return
+      setChangelogBusy(true)
+      appendChangelogBatch()
+      fillChangelogFrame()
+      setChangelogBusy(false)
+      finishChangelogIfComplete()
+    }, {
+      root: els.changelog,
+      rootMargin: '120px 0px'
+    })
+
+    state.changelogObserver.observe(state.changelogSentinel)
+  }
+
+  function renderChangelog () {
+    disconnectChangelogObserver()
+    removeChangelogSentinel()
+    state.changelogIndex = 0
+    els.changelog.replaceChildren()
+
+    const releases = getOrderedReleases()
+    if (releases.length === 0) {
+      els.changelog.innerHTML = '<p class="acdx-muted">No changelog entries yet.</p>'
+      setChangelogBusy(false)
+      return
+    }
+
+    const sentinel = document.createElement('div')
+    sentinel.className = 'acdx-changelog-sentinel'
+    sentinel.setAttribute('aria-hidden', 'true')
+    els.changelog.appendChild(sentinel)
+    state.changelogSentinel = sentinel
+
+    fillChangelogFrame()
+    bindChangelogLazyLoad()
+    setChangelogBusy(false)
   }
 
   function bindTabs () {
@@ -204,6 +323,10 @@
         const panel = document.getElementById(tab.getAttribute('aria-controls'))
         if (panel) panel.hidden = !selectedNow
       })
+
+      if (selected.getAttribute('aria-controls') === 'acdx-changelog-panel') {
+        fillChangelogFrame()
+      }
     }
 
     tablist.addEventListener('click', event => {
@@ -346,7 +469,6 @@
   function handleVersionChange () {
     state.selectedRelease = getReleaseByVersion(els.version.value)
     renderSelectedRelease()
-    renderChangelog()
     resetDownload()
     updateApplyButton()
 

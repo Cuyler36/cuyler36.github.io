@@ -5,21 +5,13 @@ layout: page
 <link rel="stylesheet" href="{{ '/assets/css/acdx/style.css' | relative_url }}">
 
 <div class="acdx-tool" data-metadata-url="{{ '/assets/data/acdx/releases.json' | relative_url }}">
-  {% if page.banner %}
-  <img class="acdx-banner" src="{{ page.banner | relative_url }}" alt="{{ page.title }} logo">
-  {% endif %}
-
   <section class="acdx-intro">
+    {% if page.banner %}
+    <img class="acdx-banner" src="{{ page.banner | relative_url }}" alt="{{ page.title }} logo">
+    {% endif %}
     <p>
       Build an <strong>Animal Crossing Deluxe</strong> disc image from your own clean Animal Crossing source image.
       Your file is processed locally in this browser; it is not uploaded.
-    </p>
-    <p class="acdx-muted">
-      Select a Deluxe release, choose a supported source ISO/NKit image, then apply the matching xdelta patch.
-    </p>
-    <p class="acdx-warning">
-      Files are processed locally in your browser. Large source images are read in chunks,
-      but keep this page open until patching and verification complete.
     </p>
   </section>
 
@@ -42,7 +34,7 @@ layout: page
     </label>
 
     <div class="acdx-status" id="acdx-status" role="status" aria-live="polite">
-      Load a supported source image to begin.
+      Load a supported ISO/NKit source file to begin.
     </div>
 
     <div class="acdx-progress hidden" id="acdx-progress-wrap" aria-hidden="true">
@@ -51,7 +43,7 @@ layout: page
 
     <div class="acdx-actions">
       <button type="button" id="acdx-apply-button" disabled>Apply Patch</button>
-      <a id="acdx-download-link" class="acdx-download hidden" href="#" download>Download patched image</a>
+      <a id="acdx-download-link" class="acdx-download hidden" href="#" download>Download patched file</a>
       <a
         class="acdx-github-link"
         href="https://github.com/Cuyler36/cuyler36.github.io/tree/master/assets/patches/acdx"
@@ -95,7 +87,13 @@ layout: page
       id="acdx-changelog-panel"
       role="tabpanel"
       aria-labelledby="acdx-changelog-heading">
-      <div class="acdx-changelog" id="acdx-changelog"></div>
+      <div
+        class="acdx-changelog"
+        id="acdx-changelog"
+        role="feed"
+        tabindex="0"
+        aria-label="Release changelog"
+        aria-busy="false"></div>
     </div>
 
     <div
@@ -104,7 +102,12 @@ layout: page
       role="tabpanel"
       aria-labelledby="acdx-sources-heading"
       hidden>
-      <div class="acdx-source-list" id="acdx-source-list"></div>
+      <div
+        class="acdx-source-list"
+        id="acdx-source-list"
+        role="region"
+        tabindex="0"
+        aria-label="Supported source images"></div>
     </div>
   </section>
 </div>
