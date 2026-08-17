@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "latest": "0.42.0",
+    "latest": "0.42.1",
     "sources": {
         "ac-us-iso": {
             "label": "Animal Crossing US ISO",
@@ -535,6 +535,47 @@
                     "outputName": "ACDX-0.42.0.iso",
                     "outputSize": 35526656,
                     "outputSha1": "C86852CE49DBC98FC69BF4238F6F13A2BE4FFDDA"
+                }
+            }
+        },
+        {
+            "version": "0.42.1",
+            "orderId": 421,
+            "date": "2026-08-17",
+            "label": "AC Deluxe 0.42.1",
+            "summary": "Patch 42.1 improves the quality for the new K.K. songs, improves loading times when disc read speed emulation is enabled, and more!",
+            "changelog": [
+                "The eight new K.K. songs sound much better and loop properly! Thanks @FlyingMeta!",
+                "A new warning is shown when the game detects disc read speed emulation is enabled.",
+                "Initial loading is much faster when disc read speed emulation is enabled.",
+                "Town acre data is now cached in memory for quicker transitions when disc read speed emulation is enabled.",
+                "Fixed a bug that caused the title screen music to continue playing when making a new town.",
+                "Fixed a bug with beds near cliffs that let the player jump off cliffs or into the ocean."
+            ],
+            "patches": {
+                "ac-us-iso": {
+                    "url": "/assets/patches/acdx/0.42.1/ac-us-iso.xdelta",
+                    "outputName": "ACDX-0.42.1.iso",
+                    "outputSize": 35596288,
+                    "outputSha1": "214939AA02EB24416D2C286A4E7534A084621B97"
+                },
+                "ac-aus-iso": {
+                    "url": "/assets/patches/acdx/0.42.1/ac-aus-iso.xdelta",
+                    "outputName": "ACDX-0.42.1.iso",
+                    "outputSize": 35596288,
+                    "outputSha1": "214939AA02EB24416D2C286A4E7534A084621B97"
+                },
+                "ac-pal-iso": {
+                    "url": "/assets/patches/acdx/0.42.1/ac-pal-iso.xdelta",
+                    "outputName": "ACDX-0.42.1.iso",
+                    "outputSize": 35596288,
+                    "outputSha1": "214939AA02EB24416D2C286A4E7534A084621B97"
+                },
+                "ac-us-nkit-iso": {
+                    "url": "/assets/patches/acdx/0.42.1/ac-us-nkit-iso.xdelta",
+                    "outputName": "ACDX-0.42.1.iso",
+                    "outputSize": 35596288,
+                    "outputSha1": "214939AA02EB24416D2C286A4E7534A084621B97"
                 }
             }
         }
