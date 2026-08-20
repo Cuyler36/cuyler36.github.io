@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "latest": "0.42.1",
+    "latest": "0.43.0",
     "sources": {
         "ac-us-iso": {
             "label": "Animal Crossing US ISO",
@@ -576,6 +576,48 @@
                     "outputName": "ACDX-0.42.1.iso",
                     "outputSize": 35596288,
                     "outputSha1": "214939AA02EB24416D2C286A4E7534A084621B97"
+                }
+            }
+        },
+        {
+            "version": "0.43.0",
+            "orderId": 430,
+            "date": "2026-08-20",
+            "label": "AC Deluxe 0.43.0",
+            "summary": "Patch 43.0 adds all New Leaf K.K. Slider songs and contains bugfixes!",
+            "changelog": [
+                "Sixteen new K.K. Slider songs have been added! This brings all the New Leaf songs to Deluxe.",
+                "The three invalid request (hazure) songs are now from New Leaf, being Animal City, Farewell, and Drivin'.",
+                "You can request K.K. Birthday on the Saturday on or before your birthday.",
+                "K.K. D & B was renamed to K.K. D&B to match future naming and make it easier to request.",
+                "Fixed a bug that caused outdoor furniture on tables to sometimes be pushed up in the air.",
+                "Fixed a bug that prevented dropping Bell bags while in your house.",
+                "Fixed a bug that prevented suspension bridges from setting their collision properly."
+            ],
+            "patches": {
+                "ac-us-iso": {
+                    "url": "/assets/patches/acdx/0.43.0/ac-us-iso.xdelta",
+                    "outputName": "ACDX-0.43.0.iso",
+                    "outputSize": 36935680,
+                    "outputSha1": "FF62F2FA5EB7950A2EE413A6B80ED78CAE765878"
+                },
+                "ac-aus-iso": {
+                    "url": "/assets/patches/acdx/0.43.0/ac-aus-iso.xdelta",
+                    "outputName": "ACDX-0.43.0.iso",
+                    "outputSize": 36935680,
+                    "outputSha1": "FF62F2FA5EB7950A2EE413A6B80ED78CAE765878"
+                },
+                "ac-pal-iso": {
+                    "url": "/assets/patches/acdx/0.43.0/ac-pal-iso.xdelta",
+                    "outputName": "ACDX-0.43.0.iso",
+                    "outputSize": 36935680,
+                    "outputSha1": "FF62F2FA5EB7950A2EE413A6B80ED78CAE765878"
+                },
+                "ac-us-nkit-iso": {
+                    "url": "/assets/patches/acdx/0.43.0/ac-us-nkit-iso.xdelta",
+                    "outputName": "ACDX-0.43.0.iso",
+                    "outputSize": 36935680,
+                    "outputSha1": "FF62F2FA5EB7950A2EE413A6B80ED78CAE765878"
                 }
             }
         }
