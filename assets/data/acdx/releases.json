@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "latest": "0.43.0",
+    "latest": "0.43.1",
     "sources": {
         "ac-us-iso": {
             "label": "Animal Crossing US ISO",
@@ -618,6 +618,48 @@
                     "outputName": "ACDX-0.43.0.iso",
                     "outputSize": 36935680,
                     "outputSha1": "FF62F2FA5EB7950A2EE413A6B80ED78CAE765878"
+                }
+            }
+        },
+        {
+            "version": "0.43.1",
+            "orderId": 431,
+            "date": "2026-08-23",
+            "label": "AC Deluxe 0.43.1",
+            "summary": "Patch 43.1 fixes save file overwrite issues and has massive performance improvements!",
+            "changelog": [
+                "Massive performance improvements! Audio renders 80% faster in most cases and rendering is 30%-40% faster depending on the scene!",
+                "Outdoor transitions are delayed until all visible furniture has loaded in. This reduces pop-in when transitioning from indoor to outdoor scenes and the event notification scene.",
+                "Deluxe save files can be moved between memory cards in the GC and Wii memory card managers.",
+                "Renamed Tunic of Time to Kokiri tunic.",
+                "Fixed traveling to another town overwriting your town's saved letters and designs.",
+                "Fixed Katrina's tent scene broken geometry.",
+                "Fixed holes disappearing for a frame or two when filling them in."
+            ],
+            "patches": {
+                "ac-us-iso": {
+                    "url": "/assets/patches/acdx/0.43.1/ac-us-iso.xdelta",
+                    "outputName": "ACDX-0.43.1.iso",
+                    "outputSize": 39585792,
+                    "outputSha1": "6F6AC8F9AF05A627EC5C12A5AA346496B91A8B71"
+                },
+                "ac-aus-iso": {
+                    "url": "/assets/patches/acdx/0.43.1/ac-aus-iso.xdelta",
+                    "outputName": "ACDX-0.43.1.iso",
+                    "outputSize": 39585792,
+                    "outputSha1": "6F6AC8F9AF05A627EC5C12A5AA346496B91A8B71"
+                },
+                "ac-pal-iso": {
+                    "url": "/assets/patches/acdx/0.43.1/ac-pal-iso.xdelta",
+                    "outputName": "ACDX-0.43.1.iso",
+                    "outputSize": 39585792,
+                    "outputSha1": "6F6AC8F9AF05A627EC5C12A5AA346496B91A8B71"
+                },
+                "ac-us-nkit-iso": {
+                    "url": "/assets/patches/acdx/0.43.1/ac-us-nkit-iso.xdelta",
+                    "outputName": "ACDX-0.43.1.iso",
+                    "outputSize": 39585792,
+                    "outputSha1": "6F6AC8F9AF05A627EC5C12A5AA346496B91A8B71"
                 }
             }
         }
