@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "latest": "0.43.1",
+    "latest": "0.43.2",
     "sources": {
         "ac-us-iso": {
             "label": "Animal Crossing US ISO",
@@ -660,6 +660,48 @@
                     "outputName": "ACDX-0.43.1.iso",
                     "outputSize": 39585792,
                     "outputSha1": "6F6AC8F9AF05A627EC5C12A5AA346496B91A8B71"
+                }
+            }
+        },
+        {
+            "version": "0.43.2",
+            "orderId": 432,
+            "date": "2026-08-24",
+            "label": "AC Deluxe 0.43.2",
+            "summary": "Patch 43.2 is a pure bugfix release for 43.1!",
+            "changelog": [
+                "Fixed stale rendering data causing some furniture to draw incorrectly.",
+                "Fixed ghostly chair scaling issues.",
+                "Fixed the stained glass windows in the museum lobby.",
+                "Fixed ambient sound effects sometimes not playing when exiting buildings.",
+                "Fixed casting issue preventing the island player cottage door detection from working.",
+                "Removed duplicate Cuyler's Photo entry from the catalog.",
+                "Lots of bugfixes for outdoor furniture loading and placement."
+            ],
+            "patches": {
+                "ac-us-iso": {
+                    "url": "/assets/patches/acdx/0.43.2/ac-us-iso.xdelta",
+                    "outputName": "ACDX-0.43.2.iso",
+                    "outputSize": 38668288,
+                    "outputSha1": "F2AE486553EA6D761773413661B86898AA097BCA"
+                },
+                "ac-aus-iso": {
+                    "url": "/assets/patches/acdx/0.43.2/ac-aus-iso.xdelta",
+                    "outputName": "ACDX-0.43.2.iso",
+                    "outputSize": 38668288,
+                    "outputSha1": "F2AE486553EA6D761773413661B86898AA097BCA"
+                },
+                "ac-pal-iso": {
+                    "url": "/assets/patches/acdx/0.43.2/ac-pal-iso.xdelta",
+                    "outputName": "ACDX-0.43.2.iso",
+                    "outputSize": 38668288,
+                    "outputSha1": "F2AE486553EA6D761773413661B86898AA097BCA"
+                },
+                "ac-us-nkit-iso": {
+                    "url": "/assets/patches/acdx/0.43.2/ac-us-nkit-iso.xdelta",
+                    "outputName": "ACDX-0.43.2.iso",
+                    "outputSize": 38668288,
+                    "outputSha1": "F2AE486553EA6D761773413661B86898AA097BCA"
                 }
             }
         }
