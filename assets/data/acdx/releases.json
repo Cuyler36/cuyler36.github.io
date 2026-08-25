@@ -712,7 +712,9 @@
             "label": "AC Deluxe 0.43.3",
             "summary": "Patch 43.3 fixes a crash and adds a new in-progress feature to Katrina!",
             "changelog": [
-                "Fixed a vanilla heap crash exposed by fixes in 43.2."
+                "Katrina now offers a service evaluating the Feng Shui of furniture. She will only do this before you receive your fortune for now.",
+                "Fixed a vanilla heap crash exposed by fixes in 43.2.",
+                "Fixed some more stale data issues in emu64 that affected rendering in the catalog."
             ],
             "patches": {
                 "ac-us-iso": {
