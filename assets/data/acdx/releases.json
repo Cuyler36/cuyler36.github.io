@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "latest": "0.43.2",
+    "latest": "0.43.3",
     "sources": {
         "ac-us-iso": {
             "label": "Animal Crossing US ISO",
@@ -702,6 +702,42 @@
                     "outputName": "ACDX-0.43.2.iso",
                     "outputSize": 38668288,
                     "outputSha1": "F2AE486553EA6D761773413661B86898AA097BCA"
+                }
+            }
+        },
+        {
+            "version": "0.43.3",
+            "orderId": 433,
+            "date": "2026-08-25",
+            "label": "AC Deluxe 0.43.3",
+            "summary": "Patch 43.3 fixes a crash and adds a new in-progress feature to Katrina!",
+            "changelog": [
+                "Fixed a vanilla heap crash exposed by fixes in 43.2."
+            ],
+            "patches": {
+                "ac-us-iso": {
+                    "url": "/assets/patches/acdx/0.43.3/ac-us-iso.xdelta",
+                    "outputName": "ACDX-0.43.3.iso",
+                    "outputSize": 39571456,
+                    "outputSha1": "44D86C6E94710268E183E667AB7709FFEC469C4F"
+                },
+                "ac-aus-iso": {
+                    "url": "/assets/patches/acdx/0.43.3/ac-aus-iso.xdelta",
+                    "outputName": "ACDX-0.43.3.iso",
+                    "outputSize": 39571456,
+                    "outputSha1": "44D86C6E94710268E183E667AB7709FFEC469C4F"
+                },
+                "ac-pal-iso": {
+                    "url": "/assets/patches/acdx/0.43.3/ac-pal-iso.xdelta",
+                    "outputName": "ACDX-0.43.3.iso",
+                    "outputSize": 39571456,
+                    "outputSha1": "44D86C6E94710268E183E667AB7709FFEC469C4F"
+                },
+                "ac-us-nkit-iso": {
+                    "url": "/assets/patches/acdx/0.43.3/ac-us-nkit-iso.xdelta",
+                    "outputName": "ACDX-0.43.3.iso",
+                    "outputSize": 39571456,
+                    "outputSha1": "44D86C6E94710268E183E667AB7709FFEC469C4F"
                 }
             }
         }
