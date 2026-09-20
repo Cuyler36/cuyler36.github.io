@@ -1,12 +1,12 @@
 ---
 layout: page
-title: "Animal Crossing: Deluxe — Features & Changes"
-description: "Features, additions, and gameplay changes in Animal Crossing: Deluxe."
+title: "Animal Crossing Deluxe Features & Changes"
+description: "Features, additions, and gameplay changes in Animal Crossing Deluxe."
 permalink: /acdx/features/
 hide: false
 ---
 
-*Animal Crossing: Deluxe* expands the original GameCube release with restored and adapted content from other versions of Animal Crossing, new gameplay systems, quality-of-life improvements, additional customization, and numerous smaller fixes and enhancements.
+*Animal Crossing Deluxe* expands the original GameCube release with restored and adapted content from other versions of Animal Crossing, new gameplay systems, quality-of-life improvements, additional customization, and numerous smaller fixes and enhancements.
 
 Some features are still in development and may change in future releases.
 
